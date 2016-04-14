@@ -1,4 +1,4 @@
-//This file contains list of keywords used.
+﻿//This file contains list of keywords used.
 
 POS tag JJR //adjective, comparative
 POS tag RBR //adverb, comparative

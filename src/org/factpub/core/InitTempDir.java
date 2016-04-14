@@ -13,6 +13,7 @@ public class InitTempDir implements FEConstants {
 	public static String makeTempDir() {
 		// Create a Directory under user home 
 		File dirTemp = new File(DIR_FE_HOME);
+		delete(dirTemp);
 		if(!dirTemp.exists()){
 			dirTemp.mkdirs();
 		}
@@ -22,6 +23,7 @@ public class InitTempDir implements FEConstants {
 	public static String makeJsonDir() {
 		// Create a Directory under user home 
 		File dirJSON = new File(DIR_JSON_OUTPUT);
+		delete(dirJSON);
 		if(!dirJSON.exists()){
 			dirJSON.mkdirs();
 		}
@@ -59,12 +61,55 @@ public class InitTempDir implements FEConstants {
 			            System.out.println("File copy error");
 			        }
 		        }
-		        System.out.println(file.getName() + " already exists.");
+		        System.out.println(file.getName() + " is created.");
 		        
 			}catch(Exception e){
-				System.out.println("resource access error");
+				System.out.println("resource access error.");
 			}
 		}
 	}
+	
+    /*
+     * Delete file or directory
+     */
+    private static void delete(File f){
+        /*
+         * Don't do anything if file or directory does not exist
+         */
+        if(f.exists() == false) {
+            return;
+        }
+
+        if(f.isFile()) {
+            /*
+             * if it's file, delete it.
+             */
+            f.delete();
+
+        } else if(f.isDirectory()){
+            /*
+             * if it's directory, delete all the contents'
+             */
+
+            /*
+             * get the contents
+             */
+            File[] files = f.listFiles();
+
+            /*
+             * delete all files and directory
+             */
+            for(int i=0; i<files.length; i++) {
+                /*
+                 * use recursion
+                 */
+                delete( files[i] );
+            }
+            /*
+             * delete itself
+             */
+            f.delete();
+        }
+    }
 	
 }

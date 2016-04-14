@@ -110,7 +110,6 @@ public class MainFrame implements FEConstants{
 		}
 		
 		
-		
 		frameMain = new JFrame();
 		
 		// Get Icon images

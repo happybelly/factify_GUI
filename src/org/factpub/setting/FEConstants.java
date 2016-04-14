@@ -11,7 +11,7 @@ public interface FEConstants {
 	
 	static final String[] TABLE_COLUMN_HEADINGS = {"File", "Status"};
 	
-	static final int MAX_THREADS = 2; // set -1 for flexible numbers
+	static final int MAX_THREADS = 2;
 	
 	static final String STATUS_UPLOADING = "Uploading...";
 	static final String STATUS_UPLOAD_DONE = "Upload Success!";
@@ -28,6 +28,7 @@ public interface FEConstants {
 	
 	static final String FILE_RULE_MATCHER = DIR_RULE_INPUT + File.separator + "RuleMatcher.json";
 	static final String FILE_ANNOUNCEMENT = DIR_FE_HOME + File.separator + "announcement.txt";
+	static final String FILE_LOG = DIR_FE_HOME + File.separator + "log.txt";
 	
 	static final String IP_ADDRESS = "factpub.org";
 	
