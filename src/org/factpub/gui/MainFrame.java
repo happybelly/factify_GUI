@@ -109,7 +109,6 @@ public class MainFrame implements FEConstants{
 		    // If Nimbus is not available, you can set the GUI to another look and feel.
 		}
 		
-		
 		frameMain = new JFrame();
 		
 		// Get Icon images
@@ -192,7 +191,7 @@ public class MainFrame implements FEConstants{
 	    new DropTarget(ScrollPane, dndListener);
 	    
 	    JPanel dndPanel = new JPanel();
-	    ScrollPane.setRowHeaderView(dndPanel);
+	    //ScrollPane.setRowHeaderView(dndPanel);
 	    frameMain.getContentPane().add(dndPanel);
 	    
 	    JButton btnLogin = new JButton("Login");
