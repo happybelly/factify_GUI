@@ -194,7 +194,7 @@ public class MainFrame implements FEConstants{
 	    //ScrollPane.setRowHeaderView(dndPanel);
 	    frameMain.getContentPane().add(dndPanel);
 	    
-	    JButton btnLogin = new JButton("Login");
+	    JButton btnLogin = new JButton("Sign in");
 	    btnLogin.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		String wikiID = textWikiID.getText();
@@ -261,12 +261,11 @@ public class MainFrame implements FEConstants{
 	    
 	    txtUserAuth = new JTextField();
 	    txtUserAuth.setEditable(false);
-	    txtUserAuth.setText("Anonymous");
 	    txtUserAuth.setBounds(397, 1, 97, 20);
 	    frameMain.getContentPane().add(txtUserAuth);
 	    txtUserAuth.setColumns(10);
 	    
-	    JButton btnRegister = new JButton("Register");
+	    JButton btnRegister = new JButton("Sign up");
 	    btnRegister.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent arg0) {
 	    		System.out.println("Register clicked");
@@ -282,7 +281,7 @@ public class MainFrame implements FEConstants{
     	        }
 	    	}
 	    });
-	    btnRegister.setBounds(494, 0, 89, 23);
+	    btnRegister.setBounds(493, 0, 90, 23);
 	    frameMain.getContentPane().add(btnRegister);
 	       
 	}

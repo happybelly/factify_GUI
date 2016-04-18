@@ -21,6 +21,8 @@ import org.factpub.core.FEWrapper;
 import org.factpub.network.PostFile;
 import org.factpub.setting.FEConstants;
 
+import utility.utility;
+
 public class CoreDNDListener extends Thread implements DropTargetListener{
 	
 	protected static final Component Component = null;
@@ -255,10 +257,10 @@ public class CoreDNDListener extends Thread implements DropTargetListener{
 		    		// Uploading Facts
 		    		if(status.equals(FEConstants.STATUS_UPLOADING)){
 		        		try{
-		        			System.out.println(MainFrame.JSONFileDirPath + File.separator + file.getName() + ".json");
+		        			System.out.println(FEWrapper.fileNameMD5);
 		        			
 		        			// File name must be MD5!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! otherwise it does get error.
-		        			File json = new File(FEConstants.DIR_JSON_OUTPUT + File.separator + file.getName() + ".json");
+		        			File json = new File(FEWrapper.fileNameMD5);
 		        			
 		        			// with DOI --> uploadtoFactpub_DOI
 		        			// without DOI --> uploadtoFactpub_noDOI
