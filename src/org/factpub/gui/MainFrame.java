@@ -148,7 +148,7 @@ public class MainFrame implements FEConstants {
 		frameMain.setBounds(100, 100, 431, 400);
 		frameMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frameMain.getContentPane().setLayout(null);
-		DNDThreadSemaphore dndListener = new DNDThreadSemaphore();
+		DNDListener dndListener = new DNDListener();
 
 		// Table
 		tableModel = new DefaultTableModel(0, TABLE_COLUMN_NUM);
@@ -167,7 +167,7 @@ public class MainFrame implements FEConstants {
 
 					// Launch Browser
 					Desktop desktop = Desktop.getDesktop();
-					String pageTitle = DNDThreadSemaphore.getPageTitle(row);
+					String pageTitle = DNDListener.getPageTitle(row);
 					String uriString = FEConstants.PAGE_CREATED + pageTitle;
 					if (pageTitle != null) {
 						try {

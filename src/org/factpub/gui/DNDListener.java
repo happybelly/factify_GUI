@@ -1,6 +1,5 @@
 package org.factpub.gui;
 
-import java.awt.Component;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.dnd.DnDConstants;
@@ -9,22 +8,16 @@ import java.awt.dnd.DropTargetDropEvent;
 import java.awt.dnd.DropTargetEvent;
 import java.awt.dnd.DropTargetListener;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 
 import javax.swing.table.DefaultTableModel;
 
-import org.factpub.core.FEWrapper;
-import org.factpub.core.InitTempDir;
-import org.factpub.network.PostFile;
 import org.factpub.utility.FEConstants;
 import org.factpub.utility.Utility;
 
-public class DNDThreadSemaphore extends Thread implements DropTargetListener{
+public class DNDListener implements DropTargetListener{
 
 	private static List<File> filesArray = new ArrayList<File>();
 	private static List<String> fnameArray = new ArrayList<String>();
@@ -33,41 +26,16 @@ public class DNDThreadSemaphore extends Thread implements DropTargetListener{
 	private int i = 0;
 	private String[] row = new String[FEConstants.TABLE_COLUMN_NUM];
 	
-	private Semaphore semaphore; 
+	Semaphore smph = new Semaphore(FEConstants.MAX_THREADS);	
 
-	Semaphore smph = new Semaphore(FEConstants.MAX_THREADS);
-	
-	// For Thread
-	private int row_thread;
-	private File file;
-	
-	// Default Constructor Must be Clarified for Threads
-	// Output 
-	public DNDThreadSemaphore(){
-			    
-	}
-		
-	public DNDThreadSemaphore(Semaphore semaphore, File file, int row_thread){
-		this.semaphore = semaphore;
-		this.file = file;
-		this.row_thread = row_thread;
-	}
-	
-	public static List<File> getFiles(){
-		return filesArray;
-	}
-	
-	public static List<String> getFname(){
-		return fnameArray;
-	}
-
-	public static List<String> getFilePaths(){
-		return pathsArray;
+	public static String setPageTitle(int row, String pageTitle){
+		return titlesArray.set(row, pageTitle);
 	}
 	
 	public static String getPageTitle(int i){
 		return titlesArray.get(i);
 	}
+	
 	
     @Override
     public void drop(DropTargetDropEvent event) {
@@ -115,24 +83,26 @@ public class DNDThreadSemaphore extends Thread implements DropTargetListener{
                     		//////////////////////////////////
                             // Thread: Run process          //
                             //////////////////////////////////
-                    		//service.execute(new CoreDNDListener(file, i)); //<-----------------------------run sub process here!!
-                    		try{
-                    			new DNDThreadSemaphore(smph, file, i).start();
-                    		}catch (Exception e){
-                    			System.out.println("multithread error occured.");
-                    			System.out.print(e);
-                    			row[1] = "multithread error!";
-                    			e.printStackTrace();
-                    		}finally{
-
-                    		}
+                    		Thread thread = new Thread(new FEThread(smph, file, i));
                     		
+                    		try{
+                    			thread.start();
+                    		}catch (ArrayIndexOutOfBoundsException e){
+                    			row[1] = "ArrayIndexOutOfBoundsException error!";
+                    			e.printStackTrace();
+                    			
+                    		}catch (Exception e){
+                    			row[1] = "Unknown multithread error!";
+                    			e.printStackTrace();
+                    			
+                    		}finally{
+                    			
+                    		}
                     		
                     	}else{
                     		row[0] = fnameArray.get(i);
                     		row[1] = "Invalid Input";
                     	}
-
                     	
                     	//Bug must exist here...
                     	DefaultTableModel tableModel = MainFrame.getTableModel();
@@ -190,92 +160,4 @@ public class DNDThreadSemaphore extends Thread implements DropTargetListener{
 		// TODO Auto-generated method stub
 		
 	}	
-	
-	private synchronized void updateStatusColumn(String status, int row_thread_sync){
-		MainFrame.tableModel.setValueAt(status, row_thread_sync, FEConstants.TABLE_COLUMN_STATUS);
-	}
-	
-	// Thread process
-	@Override
-	public void run(){
-		
-		try{
-			
-			this.semaphore.acquire();
-
-			//Thread.sleep(1000);
-			
-			String status = "Now Extracting...";
-			
-			Thread.sleep((long) (Math.random() * 1000)); //1秒以下のランダムな時間
-			updateStatusColumn(status, row_thread);
-
-			status = FEWrapper.GUI_Wrapper(file);  // <--------------------------- where FactExtractor is executed!
-			// If success
-			updateStatusColumn(status, row_thread);
-			
-			if(status == FEConstants.FE_STATUS_CODE_1){
-				// Fact Extractor
-				try{    		    		
-		    		// Uploading Facts
-		    		if(status.equals(FEConstants.STATUS_UPLOADING)){
-		        		try{
-		        			System.out.println(FEWrapper.fileNameMD5);
-		        			
-		        			// File name must be MD5!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! otherwise it does get error.
-		        			File json = new File(FEWrapper.fileNameMD5);
-		        			
-		        			// with DOI --> uploadtoFactpub_DOI
-		        			// without DOI --> uploadtoFactpub_noDOI
-		//        			if(checkDOIexists(json)){
-		//        				System.out.println("ParseJSON.checkDOIexists is called");
-		//        			}
-		        			        			
-		        			List<String> res = PostFile.uploadToFactpub(json);
-		        			//TableCellRenderer cell = MainPanel.fileTable.getCellRenderer(row_thread, col_thread);        			
-		        			//status = "Upload Success!";      			
-
-		        			//MainPanel.tableModel.setValueAt(res, row_thread, TABLE_COLUMN_STATUS);
-		        			
-		        			// If the server returns page title, put it into the array so browser can open the page when user click it.
-		        			if(res.get(0).contains(FEConstants.SERVER_RES_TITLE_BEGIN)){
-		        				//Embedding HyperLink
-		        				String pageTitle = (String) res.get(0).subSequence(res.get(0).indexOf(FEConstants.SERVER_RES_TITLE_BEGIN) + FEConstants.SERVER_RES_TITLE_BEGIN.length(), res.get(0).indexOf(FEConstants.SERVER_RES_TITLE_END));
-		        				pageTitle = pageTitle.replace(" ", "_");
-		        				System.out.println(pageTitle);
-		        				titlesArray.set(row_thread, pageTitle);
-		        				
-		        				status = "<html><u><font color=\"blue\">Upload Success!</font></u></html>";
-		        				updateStatusColumn(status, row_thread);
-		        				
-		        				//change table color        				
-		        			}else{
-		        				
-		        				status = "Upload Success!";
-		        				updateStatusColumn(status, row_thread);
-		        				
-		        			}
-		        			
-		        			// embed HTML to the label
-		        			}catch(Exception e){
-		        				
-			        			status = FEConstants.STATUS_UPLOAD_FAILED;
-			        			updateStatusColumn(status, row_thread);
-			        			
-		        		}
-		    		}	                    		
-				}catch(Exception e){
-					// If not success
-					status = "Failed to upload.";
-					updateStatusColumn(status, row_thread);
-					
-				}
-			}
-		}catch (InterruptedException e){
-			System.out.println("Waiting error occured.");
-			e.printStackTrace();
-		}finally{
-			this.semaphore.release();
-		}
-	}
 }
