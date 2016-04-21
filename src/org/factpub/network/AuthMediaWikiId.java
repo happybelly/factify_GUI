@@ -8,7 +8,7 @@ import java.net.URL;
 import javax.swing.JOptionPane;
 
 import org.factpub.gui.MainFrame;
-import org.factpub.setting.FEConstants;
+import org.factpub.utility.FEConstants;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -53,16 +53,17 @@ public class AuthMediaWikiId {
 				switch(auth){
 				case "NoName" :
 					System.out.println("NoName");
+					authorisedUser = "Anonymous";
 					break;
 				case "NotExists" :
 					System.out.println("NotExists");
 					JOptionPane.showMessageDialog(MainFrame.frameMain, "User does not exist.");
-					MainFrame.txtUserAuth.setText("Anonymous");
+					authorisedUser = "Anonymous";
 					break;
 				case "WrongPass" :
 					System.out.println("WrongPass");
 					JOptionPane.showMessageDialog(MainFrame.frameMain, "User exists but password is wrong.");
-					MainFrame.txtUserAuth.setText("Anonymous");
+					authorisedUser = "Anonymous";
 					break;
 				case "Success" :
 					System.out.println("Success");
@@ -75,7 +76,7 @@ public class AuthMediaWikiId {
 				    // replace space with underscore
 				    authorisedUser = authorisedUser.replace(" ", "_");
 				    
-					MainFrame.txtUserAuth.setText(authorisedUser);
+					//MainFrame.txtUserAuth.setText(authorisedUser);
 					break;			
 				}			
 				

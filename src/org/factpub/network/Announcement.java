@@ -2,7 +2,7 @@ package org.factpub.network;
 
 import java.io.File;
 
-import org.factpub.setting.FEConstants;
+import org.factpub.utility.FEConstants;
 
 public class Announcement {
 	public static String getNewAnnounce() {

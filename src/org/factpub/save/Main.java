@@ -2,7 +2,7 @@ package org.factpub.save;
 
 import javax.swing.table.*;
 
-import org.factpub.setting.FEConstants;
+import org.factpub.utility.FEConstants;
 
 import java.awt.event.*;
 import javax.swing.*;

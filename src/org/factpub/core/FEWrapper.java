@@ -1,9 +1,8 @@
 package org.factpub.core;
 
-import org.factpub.setting.FEConstants;
 import java.io.File;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+
+import org.factpub.utility.FEConstants;
 
 public class FEWrapper implements FEConstants{
 	

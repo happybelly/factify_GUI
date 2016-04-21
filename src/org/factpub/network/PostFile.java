@@ -14,8 +14,7 @@ import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.CoreProtocolPNames;
 import org.apache.http.util.EntityUtils;
-import org.factpub.gui.MainFrame;
-import org.factpub.setting.FEConstants;
+import org.factpub.utility.FEConstants;
 
 
 public class PostFile {
@@ -26,7 +25,7 @@ public class PostFile {
     HttpClient httpclient = new DefaultHttpClient();
     httpclient.getParams().setParameter(CoreProtocolPNames.PROTOCOL_VERSION, HttpVersion.HTTP_1_1);
     
-    String postUrl = FEConstants.SERVER_POST_HANDLER + "?id=" + MainFrame.txtUserAuth.getText();
+    String postUrl = FEConstants.SERVER_POST_HANDLER + "?id=" + AuthMediaWikiId.authorisedUser;
     
     HttpPost httppost = new HttpPost(postUrl);
     

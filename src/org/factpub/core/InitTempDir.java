@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.nio.file.Files;
 
 import org.factpub.gui.MainFrame;
-import org.factpub.setting.FEConstants;
+import org.factpub.utility.FEConstants;
 
 public class InitTempDir implements FEConstants {
 
@@ -37,6 +37,21 @@ public class InitTempDir implements FEConstants {
 			dirRuleINPUT.mkdirs();
 		}
 		return dirRuleINPUT.getAbsolutePath();
+	}
+	
+	public static String makeLogFile() {
+		// Create a Directory under user home 
+		File fileLog = new File(FILE_LOG);
+		if(!fileLog.exists()){
+			try {
+				fileLog.createNewFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				System.out.println("cannot create log file.");
+				e.printStackTrace();
+			}
+		}
+		return fileLog.getAbsolutePath();
 	}
 	
 	public static void copyRuleInputFiles() {

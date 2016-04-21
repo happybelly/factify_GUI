@@ -1,13 +1,14 @@
 package org.factpub.gui.design;
 
-import javax.swing.table.*;
+import java.awt.Component;
+import java.awt.Graphics;
+import java.awt.Rectangle;
 
-import org.factpub.setting.FEConstants;
-
-import java.awt.event.*;
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+import javax.swing.JScrollPane;
     
+@SuppressWarnings("serial")
 class ImageJScrollPane extends JScrollPane
 {
    private ImageIcon image = null;
