@@ -7,9 +7,9 @@ Waiting...
 C:\Users\suns1\Desktop\Information_Evolution_in_Social_Networks.pdf
 Information_Evolution_in_Social_Networks.pdf
 Waiting...
-========2016-04-21-18-16-38==========
+========2016-04-25-11-33-06==========
 ****Start Parsing PDF****
-========2016-04-21-18-16-38==========
+========2016-04-25-11-33-08==========
 ****Start Parsing PDF****
 * Supervised learning (-1, 9.730, 0.000, 0.06, 0.00, 8, [2])
 * Backpropagation to train multilayer architectures (-1, 9.730, 0.000, 0.02, 0.00, 68, [2])
@@ -79,15 +79,6 @@ top: 39.611790, bottom: 3.937792
 * 4 Corresponding author. E-MAIL steveh@fhcrc.org; FAX (206) 667-5889. (1, 7.106, 0.326, 0.05, 0.05, 16, [6])
 top: 0.000000, bottom: 0.000000
 
-Cluster of size: 9.730, 0.000, false, false, false, 0
-* Supervised learning (9.730, 0.000, 0.06, 8, [2])
-* Backpropagation to train multilayer architectures (9.730, 0.000, 0.02, 68, [2])
-* Convolutional neural networks (9.730, 0.000, 0.04, 89, [2])
-* Image understanding with deep convolutional networks (9.730, 0.000, 0.02, 97, [2])
-* Distributed representations and language processing (9.730, 0.000, 0.02, 120, [2])
-* Recurrent neural networks (9.730, 0.000, 0.04, 129, [2])
-* The future of deep learning (9.730, 0.000, 0.04, 196, [2])
-
 
 Table 1. SIFT Prediction on Human Variant Databases
 
@@ -99,9 +90,12 @@ Table 3. (Continued)
 
 Table 5. Comparison of Amino Acid Prediction Tools on nsSNPs to Estimate the Percentage of nsSNPs that Affect Protein Function in an Individual Chasman and Sunyaev et al. Ng and Henikoff Adams (2001) Sunyaev et al. (2001) (corrected)
 Cluster of size: 9.563, 0.000, true, false, false, 0
+Cluster of size: 9.730, 0.000, false, false, false, 0
 * RESULTS (9.563, 0.000, 1.00, 11, [0])
 * DISCUSSION (9.563, 0.000, 1.00, 126, [0])
+* Supervised learning (9.730, 0.000, 0.06, 8, [2])
 * METHODS (9.563, 0.000, 1.00, 310, [0])
+* Backpropagation to train multilayer architectures (9.730, 0.000, 0.02, 68, [2])
 
 Cluster of size: 8.967, 0.001, false, false, false, 1
 * SIFT Analysis of Human Variant Databases (8.969, 0.006, 0.23, 13, [3, 0])
@@ -115,7 +109,13 @@ Cluster of size: 8.967, 0.001, false, false, false, 1
 * Predicting Damaging Amino Acid Substitutions (8.967, 0.000, 0.13, 316, [0])
 * Databases (8.967, 0.000, 0.11, 328, [0])
 * Estimation of False Positive Error (8.967, 0.000, 0.13, 333, [0])
+* Convolutional neural networks (9.730, 0.000, 0.04, 89, [2])
 * Genes with a High Fraction of nsSNPs Predicted to Affect Protein Function (8.967, 0.000, 0.17, 345, [0])
+
+* Image understanding with deep convolutional networks (9.730, 0.000, 0.02, 97, [2])
+* Distributed representations and language processing (9.730, 0.000, 0.02, 120, [2])
+* Recurrent neural networks (9.730, 0.000, 0.04, 129, [2])
+* The future of deep learning (9.730, 0.000, 0.04, 196, [2])
 
 WARNING: INVALID acronym "z" : "max(0,z), commonly used in recent years, as well as the more conventional sigmoids, such as the hyberbolic tangent, f" 
 WARNING: acronym "z" has more than one long forms: "exp(−z))/(exp" and f ( z ) = ( exp
@@ -136,25 +136,29 @@ WARNING: acronym "MTHFR" has more than one long forms: "methylenetetrahydrofolat
 WARNING: acronym "MTHFR" has more than one long forms: "Methylenetetrahydrofolate reductase " and methylenetetrahydrofolate reductase
 WARNING: there are unpaired parenthesis: html); site at which SIFT version 2 is available.
 ****Start pattern matching********Start pattern matching****Uploading...
-++++++++++++++++++Extracted!++++++++++++++++++++
-factpub\JSON\a9918b1f02c17396c7410974d239fd3c_facts.json
+++++++++++++++++++FactExtractor Performed++++++++++++++++++++
+factpub\JSON\9f1fb30f486529c2277305a1650a0d64_facts.json
 http://factpub.org:8080/uploadGUIFactExtractor?id=Anonymous
 executing request POST http://factpub.org:8080/uploadGUIFactExtractor?id=Anonymous HTTP/1.1
+INFO  http.impl.client.DefaultHttpClient - I/O exception (java.io.FileNotFoundException) caught when processing request to {}->http://factpub.org:8080: factpub\JSON\9f1fb30f486529c2277305a1650a0d64_facts.json (The system cannot find the file specified)
+INFO  http.impl.client.DefaultHttpClient - Retrying request to {}->http://factpub.org:8080
+INFO  http.impl.client.DefaultHttpClient - I/O exception (java.io.FileNotFoundException) caught when processing request to {}->http://factpub.org:8080: factpub\JSON\9f1fb30f486529c2277305a1650a0d64_facts.json (The system cannot find the file specified)
+INFO  http.impl.client.DefaultHttpClient - Retrying request to {}->http://factpub.org:8080
+INFO  http.impl.client.DefaultHttpClient - I/O exception (java.io.FileNotFoundException) caught when processing request to {}->http://factpub.org:8080: factpub\JSON\9f1fb30f486529c2277305a1650a0d64_facts.json (The system cannot find the file specified)
+INFO  http.impl.client.DefaultHttpClient - Retrying request to {}->http://factpub.org:8080
 Uploading...
-++++++++++++++++++Extracted!++++++++++++++++++++
-factpub\JSON\a9918b1f02c17396c7410974d239fd3c_facts.json
+++++++++++++++++++FactExtractor Performed++++++++++++++++++++
+factpub\JSON\9f1fb30f486529c2277305a1650a0d64_facts.json
 http://factpub.org:8080/uploadGUIFactExtractor?id=Anonymous
 executing request POST http://factpub.org:8080/uploadGUIFactExtractor?id=Anonymous HTTP/1.1
 HTTP/1.1 200 OK
 ----You made POST request.----
+unexpected EOF
 
-========2016-04-21-18-17-11==========
+========2016-04-25-11-33-32==========
 ****Start Parsing PDF****
 ERROR apache.pdfbox.pdfparser.NonSequentialPDFParser - Can't find the object xref at offset 116
 ERROR apache.pdfbox.pdfparser.NonSequentialPDFParser - Can't find the object xref at offset 1995457
-HTTP/1.1 200 OK
-----You made POST request.----
-
 doi is 10.1145/2835776.2835827]
 * 2.1 Mapping individuals’ political leanings (2, 10.777, 0.000, 0.03, 0.05, 31, [2])
 * 3.1 Replication (2, 10.777, 0.000, 0.07, 0.14, 47, [2])
@@ -220,7 +224,260 @@ WARNING: there are unpaired parenthesis: . ”)
 WARNING: INVALID acronym "a" : "a single-peaked distribution in overall meme popularity (see Figure 9" 
 WARNING: INVALID acronym "b" : "but the distribution is still single-peaked Figure 9" 
 ****Start pattern matching****Uploading...
-++++++++++++++++++Extracted!++++++++++++++++++++
+++++++++++++++++++FactExtractor Performed++++++++++++++++++++
+factpub\JSON\40d9924ea3607fee54e8f2cfd48a5618_facts.json
+http://factpub.org:8080/uploadGUIFactExtractor?id=Anonymous
+executing request POST http://factpub.org:8080/uploadGUIFactExtractor?id=Anonymous HTTP/1.1
+HTTP/1.1 200 OK
+----You made POST request.----
+
+File uploaded successfully: 9f1fb30f486529c2277305a1650a0d64_facts.json
+BEGINOFPAGETITLE:9f1fb30f486529c2277305a1650a0d64_facts
+:ENDOFPAGETITLE9f1fb30f486529c2277305a1650a0d64_facts
+
+Username: Anonymous
+9f1fb30f486529c2277305a1650a0d64_facts
+
+HTTP/1.1 200 OK
+----You made POST request.----
+
+C:\Users\suns1\Desktop\ProteinFunction_failedtoextractDOI.pdf
+ProteinFunction_failedtoextractDOI.pdf
+Waiting...
+C:\Users\suns1\Desktop\DeepLearning - NatureDeepReview.pdf
+DeepLearning - NatureDeepReview.pdf
+Waiting...
+C:\Users\suns1\Desktop\Information_Evolution_in_Social_Networks.pdf
+Information_Evolution_in_Social_Networks.pdf
+Waiting...
+========2016-04-25-11-35-35==========
+****Start Parsing PDF****
+========2016-04-25-11-35-35==========
+****Start Parsing PDF****
+* Supervised learning (-1, 9.730, 0.000, 0.06, 0.00, 8, [2])
+* Backpropagation to train multilayer architectures (-1, 9.730, 0.000, 0.02, 0.00, 68, [2])
+* Convolutional neural networks (-1, 9.730, 0.000, 0.04, 0.00, 89, [2])
+* Image understanding with deep convolutional networks (-1, 9.730, 0.000, 0.02, 0.00, 97, [2])
+* Distributed representations and language processing (-1, 9.730, 0.000, 0.02, 0.00, 120, [2])
+* Recurrent neural networks (-1, 9.730, 0.000, 0.04, 0.00, 129, [2])
+* that each contribute plausibility to a conclusion 84,85 . (-1, 9.017, 0.767, 0.00, 0.08, 183, [1])
+* The future of deep learning (-1, 9.730, 0.000, 0.04, 0.00, 196, [2])
+top: 14.200213, bottom: 1.546222
+
+* Figure 1| Multilayer neural networks and backpropagation. a, A multi- (-1, 8.339, 0.102, 0.05, 0.02, 25, [5, 1])
+* Figure 2| Inside a convolutional network. The outputs (not the filters) (-1, 8.422, 0.148, 0.05, 0.02, 64, [5, 1])
+* Figure 4| Visualizing the learned word vectors. On the left is an illustration (-1, 8.413, 0.146, 0.05, 0.02, 153, [5, 1])
+top: 32.730145, bottom: 1.352488
+
+* of each layer (horizontally) of a typical convolutional network architecture applied to the image of a Samoyed dog (bottom left; and RGB (red, green, blue) inputs, bottom right). Each rectangular image is a feature map (-1, 8.598, 0.000, 0.00, 0.00, 65, [1])
+top: 0.901642, bottom: 13.393921
+
+* for the task of classifying low-resolution images of handwritten digits. (-1, 7.256, 0.000, 0.00, 0.00, 264, [19])
+top: 0.000000, bottom: 0.000000
+
+* scene labeling. IEEE Trans. Pattern Anal. Mach. Intell. 35, 1915–1929 (2013). (-1, 7.219, 0.008, 0.13, 0.21, 206, [20, 19, 0])
+* Rep. 85-460-1 (Cornell Aeronautical Laboratory, 1957). (-1, 7.217, 0.000, 0.08, 0.20, 231, [0])
+top: 1.135269, bottom: 1.173721
+
+* 18. Bottou, L. & Bousquet, O. The tradeoffs of large scale learning. In Proc. Advances (1, 7.217, 0.000, 0.11, 0.03, 223, [20, 0])
+* 24. Werbos, P. Beyond Regression: New Tools for Prediction and Analysis in the (1, 7.217, 0.000, 0.12, 0.03, 232, [20, 0])
+* 68. Bengio, Y. Learning Deep Architectures for AI (Now, 2009). (1, 7.218, 0.000, 0.15, 0.11, 288, [20, 0])
+top: 1.010030, bottom: 1.009969
+
+* Neural Information Processing Systems 27 1799–1807 (2014). (-1, 7.218, 0.000, 0.08, 0.27, 208, [20, 0])
+* in Neural Information Processing Systems 20 161–168 (2007). 19. Duda, R. O. & Hart, P. E. Pattern Classiﬁcation and Scene Analysis (Wiley, 1973). (-1, 7.217, 0.000, 0.08, 0.23, 224, [20, 0])
+* in Cognitiva 85: a la Frontière de l’Intelligence Artiﬁcielle, des Sciences de la Connaissance et des Neurosciences [in French] 599–604 (1985). (-1, 7.217, 0.000, 0.07, 0.03, 234, [20, 0])
+* International Joint Conference on Artificial intelligence 1765–1775 (2005). (-1, 7.217, 0.000, 0.06, 0.18, 242, [20, 0])
+* networks. IEEE Trans. Audio Speech Lang. Process. 20, 14–22 (2012). (-1, 7.220, 0.009, 0.16, 0.17, 256, [20, 19, 0])
+* fast and robust face detection. IEEE Trans. Pattern Anal. Machine Intell. 26, (-1, 7.219, 0.008, 0.14, 0.03, 276, [20, 19, 0])
+* of deep neural networks. In Proc. Advances in Neural Information Processing (-1, 7.218, 0.000, 0.09, 0.00, 291, [20, 0])
+* Conference on Artificial Intelligence and Statistics 448–455 (2009). (-1, 7.217, 0.000, 0.07, 0.16, 321, [20, 0])
+* International Conference on Machine Learning 399–406 (2010). (-1, 7.217, 0.000, 0.07, 0.19, 327, [20, 0])
+top: 0.907351, bottom: 0.876357
+
+Cluster of size: 9.730, 0.000, false, false, false, 0
+* Supervised learning (9.730, 0.000, 0.06, 8, [2])
+* Backpropagation to train multilayer architectures (9.730, 0.000, 0.02, 68, [2])
+* Convolutional neural networks (9.730, 0.000, 0.04, 89, [2])
+* Image understanding with deep convolutional networks (9.730, 0.000, 0.02, 97, [2])
+* Distributed representations and language processing (9.730, 0.000, 0.02, 120, [2])
+* Recurrent neural networks (9.730, 0.000, 0.04, 129, [2])
+* The future of deep learning (9.730, 0.000, 0.04, 196, [2])
+
+* RESULTS (-1, 9.563, 0.000, 1.00, 0.00, 11, [0])
+* METHODS (-1, 9.563, 0.000, 1.00, 0.00, 310, [0])
+top: 39.742737, bottom: 6.444214
+
+* DISCUSSION (-1, 9.563, 0.000, 1.00, 0.00, 126, [0])
+top: 13.635193, bottom: 8.993469
+
+* WEB SITE REFERENCES (-1, 9.563, 0.000, 1.00, 0.00, 391, [0])
+top: 19.859497, bottom: 4.782867
+
+* SIFT Analysis of Human Variant Databases (-1, 8.969, 0.006, 0.23, 0.00, 13, [3, 0])
+* Substitutions Already Shown to Be Involved in Disease (-1, 8.967, 0.000, 0.14, 0.00, 29, [0])
+* nsSNPs Erroneously Mapped from Pseudogenes (-1, 8.967, 0.000, 0.16, 0.00, 106, [0])
+* Damaging Mutations in Redundant Motifs (-1, 8.967, 0.000, 0.12, 0.00, 115, [0])
+* Sequencing Errors Mistaken for Polymorphisms (-1, 8.967, 0.000, 0.10, 0.00, 117, [0])
+* Identifying Damaging nsSNPs (-1, 8.967, 0.000, 0.20, 0.00, 127, [0])
+* Comparison of SIFT with Other Prediction Tools (-1, 8.969, 0.006, 0.20, 0.00, 138, [3, 0])
+* Estimating the Number of Damaging nsSNPs in an Individual (-1, 8.967, 0.000, 0.16, 0.00, 142, [0])
+* Predicting Damaging Amino Acid Substitutions (-1, 8.967, 0.000, 0.13, 0.00, 316, [0])
+* Databases (-1, 8.967, 0.000, 0.11, 0.00, 328, [0])
+* Estimation of False Positive Error (-1, 8.967, 0.000, 0.13, 0.00, 333, [0])
+* Genes with a High Fraction of nsSNPs Predicted to Affect Protein Function (-1, 8.967, 0.000, 0.17, 0.00, 345, [0])
+top: 39.611790, bottom: 3.937792
+
+* 4 Corresponding author. E-MAIL steveh@fhcrc.org; FAX (206) 667-5889. (1, 7.106, 0.326, 0.05, 0.05, 16, [6])
+top: 0.000000, bottom: 0.000000
+
+
+Table 1. SIFT Prediction on Human Variant Databases
+
+Table 2. List of the 16 Genes that Had the Highest Fraction of dbSNP Changes Predicted to Be Damaging
+
+Table 3. nsSNPs from dbSNP Predicted to Be Damaging Were Shown to Be Involved in Disease
+
+Table 3. (Continued)
+
+Table 5. Comparison of Amino Acid Prediction Tools on nsSNPs to Estimate the Percentage of nsSNPs that Affect Protein Function in an Individual Chasman and Sunyaev et al. Ng and Henikoff Adams (2001) Sunyaev et al. (2001) (corrected)
+Cluster of size: 9.563, 0.000, true, false, false, 0
+* RESULTS (9.563, 0.000, 1.00, 11, [0])
+* DISCUSSION (9.563, 0.000, 1.00, 126, [0])
+* METHODS (9.563, 0.000, 1.00, 310, [0])
+
+Cluster of size: 8.967, 0.001, false, false, false, 1
+* SIFT Analysis of Human Variant Databases (8.969, 0.006, 0.23, 13, [3, 0])
+* Substitutions Already Shown to Be Involved in Disease (8.967, 0.000, 0.14, 29, [0])
+* nsSNPs Erroneously Mapped from Pseudogenes (8.967, 0.000, 0.16, 106, [0])
+* Damaging Mutations in Redundant Motifs (8.967, 0.000, 0.12, 115, [0])
+* Sequencing Errors Mistaken for Polymorphisms (8.967, 0.000, 0.10, 117, [0])
+* Identifying Damaging nsSNPs (8.967, 0.000, 0.20, 127, [0])
+* Comparison of SIFT with Other Prediction Tools (8.969, 0.006, 0.20, 138, [3, 0])
+* Estimating the Number of Damaging nsSNPs in an Individual (8.967, 0.000, 0.16, 142, [0])
+* Predicting Damaging Amino Acid Substitutions (8.967, 0.000, 0.13, 316, [0])
+* Databases (8.967, 0.000, 0.11, 328, [0])
+* Estimation of False Positive Error (8.967, 0.000, 0.13, 333, [0])
+* Genes with a High Fraction of nsSNPs Predicted to Affect Protein Function (8.967, 0.000, 0.17, 345, [0])
+
+WARNING: INVALID acronym "z" : "max(0,z), commonly used in recent years, as well as the more conventional sigmoids, such as the hyberbolic tangent, f" 
+WARNING: acronym "z" has more than one long forms: "exp(−z))/(exp" and f ( z ) = ( exp
+WARNING: acronym "−z" has more than one long forms: "exp(−z))/(exp(z) + exp" and ( exp ( z ) − exp
+WARNING: acronym "z" has more than one long forms: "exp(−z)) and logistic function logistic, f" and f ( z ) = ( exp
+WARNING: acronym "−z" has more than one long forms: "f(z) = 1/(1 + exp" and ( exp ( z ) − exp
+WARNING: acronym "ReLU" has more than one long forms: "rectified linear unit " and rectify linear unit
+WARNING: acronym "−z" has more than one long forms: "tanh(z) or 1/(1 + exp" and ( exp ( z ) − exp
+WARNING: acronym "CIFAR" has more than one long forms: "Canadian Institute For Advanced Research " and Canadian Institute for Advanced Research
+WARNING: acronym "2001" has more than one long forms: "(2001) and Chasman and Adams " and ( 2001 ) and Chasman and Adams
+WARNING: acronym "2001" has more than one long forms: "(2001) and Chasman and Adams " and ( 2001 ) and Chasman and Adams
+WARNING: acronym "2001" has more than one long forms: "2001) and Chasman and Adams " and ( 2001 ) and Chasman and Adams
+WARNING: acronym "2001" has more than one long forms: "(2001) and Chasman and Adams " and ( 2001 ) and Chasman and Adams
+WARNING: there are unpaired parenthesis: In SIFT version 2 (available at http://blocks.fhcrc.org/ ∼ pauline/SIFT.
+WARNING: there are unpaired parenthesis: html), the method by which sequences are chosen for the alignment has been changed.
+WARNING: there are unpaired parenthesis: 63: abs997 (data on poster, noted by A.J. Brookes and entered into
+WARNING: acronym "MTHFR" has more than one long forms: "methylenetetrahydrofolate reductase " and methylenetetrahydrofolate reductase
+WARNING: acronym "MTHFR" has more than one long forms: "Methylenetetrahydrofolate reductase " and methylenetetrahydrofolate reductase
+WARNING: there are unpaired parenthesis: html); site at which SIFT version 2 is available.
+****Start pattern matching********Start pattern matching****Uploading...
+++++++++++++++++++FactExtractor Performed++++++++++++++++++++
+factpub\JSON\9f1fb30f486529c2277305a1650a0d64_facts.json
+http://factpub.org:8080/uploadGUIFactExtractor?id=Anonymous
+executing request POST http://factpub.org:8080/uploadGUIFactExtractor?id=Anonymous HTTP/1.1
+Uploading...
+++++++++++++++++++FactExtractor Performed++++++++++++++++++++
+factpub\JSON\9f1fb30f486529c2277305a1650a0d64_facts.json
+http://factpub.org:8080/uploadGUIFactExtractor?id=Anonymous
+executing request POST http://factpub.org:8080/uploadGUIFactExtractor?id=Anonymous HTTP/1.1
+HTTP/1.1 200 OK
+----You made POST request.----
+
+File uploaded successfully: 9f1fb30f486529c2277305a1650a0d64_facts.json
+BEGINOFPAGETITLE:9f1fb30f486529c2277305a1650a0d64_facts
+:ENDOFPAGETITLE9f1fb30f486529c2277305a1650a0d64_facts
+
+Username: Anonymous
+9f1fb30f486529c2277305a1650a0d64_facts
+
+========2016-04-25-11-36-07==========
+****Start Parsing PDF****
+ERROR apache.pdfbox.pdfparser.NonSequentialPDFParser - Can't find the object xref at offset 116
+ERROR apache.pdfbox.pdfparser.NonSequentialPDFParser - Can't find the object xref at offset 1995457
+doi is 10.1145/2835776.2835827]
+HTTP/1.1 200 OK
+----You made POST request.----
+
+File uploaded successfully: 9f1fb30f486529c2277305a1650a0d64_facts.json
+BEGINOFPAGETITLE:9f1fb30f486529c2277305a1650a0d64_facts
+:ENDOFPAGETITLE9f1fb30f486529c2277305a1650a0d64_facts
+
+Username: Anonymous
+9f1fb30f486529c2277305a1650a0d64_facts
+
+* 2.1 Mapping individuals’ political leanings (2, 10.777, 0.000, 0.03, 0.05, 31, [2])
+* 3.1 Replication (2, 10.777, 0.000, 0.07, 0.14, 47, [2])
+* 3.2 Population Genetics of Memes (2, 10.777, 0.000, 0.11, 0.07, 73, [2])
+* 3.3 Mutation characteristics (2, 10.777, 0.000, 0.04, 0.08, 161, [2])
+* 3.4 Adaptation of Memes to Niches (2, 10.777, 0.000, 0.11, 0.07, 194, [2])
+* 3.5 Network diffusion dynamics (2, 10.777, 0.000, 0.04, 0.07, 215, [2])
+top: 10.603933, bottom: 5.458641
+
+* ladamic@fb.com (-1, 10.400, 0.000, 0.00, 0.00, 3, [1])
+top: 0.000000, bottom: 0.000000
+
+* 1. INTRODUCTION (1, 10.777, 0.000, 0.86, 0.07, 15, [2])
+* 2. DATA (1, 10.777, 0.000, 0.67, 0.17, 22, [2])
+* 3. RESULTS (1, 10.777, 0.000, 0.78, 0.11, 46, [2])
+* 0 variant length (1, 6.839, 0.000, 0.00, 1.00, 164, [14])
+* 4. DISCUSSION (1, 10.777, 0.000, 0.83, 0.08, 246, [2])
+top: 25.615686, bottom: 8.517632
+
+* Journal of Statistics, Series B, pages 247–258, 1985. (-1, 8.373, 0.025, 0.09, 0.22, 279, [4, 3])
+* evolutionary model. Journal of Molecular Biology, (-1, 8.374, 0.025, 0.07, 0.00, 281, [4, 3])
+top: 3.061417, bottom: 3.586380
+
+* to Politics, n: [Poly “many” + tics “blood-sucking parasites”] . (-1, 8.356, 0.011, 0.04, 0.00, 33, [4, 3])
+top: 2.058868, bottom: 2.058868
+
+* popularity y (ρ(s, log(y)) =−0.133, p<10 − 15 ). (-1, 7.807, 0.761, 0.00, 0.20, 185, [12, 11, 9, 7, 6, 3])
+top: 0.000000, bottom: 0.000000
+
+* Position (-1, 6.978, 0.000, 0.13, 0.00, 173, [19])
+top: 0.000000, bottom: 0.000000
+
+* date (-1, 6.340, 0.000, 0.00, 0.00, 243, [24])
+top: 0.000000, bottom: 0.000000
+
+
+Table 2: Normalized text of the most common variants of the ap- preciation meme M1190. The pairwise Levenshtein distances are:
+
+Table 1: Most popular political leanings for US users in 2012 mapped on a -2 to 2 Liberal to Conservative scale.
+
+Table 3: 4-grams which conferred replicative advantage on the vari- ants which contained them, within memes where they represented between 5 and 95% of the population.
+
+Table 4: Average political bias of individuals sharing variants of the ‘no one should’ meme (-2: very liberal, +2: very conservative).
+Cluster of size: 10.777, 0.000, true, false, false, 1
+* 1. INTRODUCTION (10.777, 0.000, 0.86, 15, [2])
+* 2. DATA (10.777, 0.000, 0.67, 22, [2])
+* 4. DISCUSSION (10.777, 0.000, 0.83, 246, [2])
+
+Cluster of size: 10.777, 0.000, false, false, false, 3
+* 2.1 Mapping individuals’ political leanings (10.777, 0.000, 0.03, 31, [2])
+* 3.1 Replication (10.777, 0.000, 0.07, 47, [2])
+* 3.2 Population Genetics of Memes (10.777, 0.000, 0.11, 73, [2])
+* 3.3 Mutation characteristics (10.777, 0.000, 0.04, 161, [2])
+* 3.4 Adaptation of Memes to Niches (10.777, 0.000, 0.11, 194, [2])
+* 3.5 Network diffusion dynamics (10.777, 0.000, 0.04, 215, [2])
+
+WARNING: INVALID acronym "a" : "an exponent close to 2, which is what we observed with our data (Figure 4" 
+WARNING: INVALID acronym "a" : "a close resemblance to the empirically observed distributions in Figure 4" 
+WARNING: INVALID acronym "a" : "as demonstrated by the contrast between Figures 5" 
+WARNING: INVALID acronym "b" : "between Figures 5(a) and " 
+WARNING: there are unpaired parenthesis: Other variants, criticizing the bill (e.g., “no one should die because the government is involved with health care.
+WARNING: there are unpaired parenthesis: . ”)
+WARNING: INVALID acronym "a" : "a single-peaked distribution in overall meme popularity (see Figure 9" 
+WARNING: INVALID acronym "b" : "but the distribution is still single-peaked Figure 9" 
+****Start pattern matching****Uploading...
+++++++++++++++++++FactExtractor Performed++++++++++++++++++++
 factpub\JSON\40d9924ea3607fee54e8f2cfd48a5618_facts.json
 http://factpub.org:8080/uploadGUIFactExtractor?id=Anonymous
 executing request POST http://factpub.org:8080/uploadGUIFactExtractor?id=Anonymous HTTP/1.1

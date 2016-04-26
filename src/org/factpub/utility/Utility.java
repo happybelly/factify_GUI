@@ -1,5 +1,7 @@
 package org.factpub.utility;
 
+import java.io.File;
+
 public class Utility {
 		/**
 		 * Return file extension from file name.
@@ -15,5 +17,12 @@ public class Utility {
 		    }
 		    return fileName;
 		}
+		
+		public static String getFileNameMD5(File file){
+			utility.utility util = new utility.utility();
+			String fileNameMD5 = FEConstants.DIR_JSON_OUTPUT + File.separator + util.MD5(file.getPath()) + "_facts.json";
+			return fileNameMD5;
+		}
+		
 }
 

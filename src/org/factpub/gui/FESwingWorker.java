@@ -17,8 +17,12 @@ import javax.swing.table.DefaultTableModel;
 import org.factpub.utility.FEConstants;
 import org.factpub.utility.Utility;
 
-public class DNDListener implements DropTargetListener{
+import example.WorkerModel;
 
+public class FESwingWorker implements DropTargetListener{
+
+	private final WorkerModel model = new WorkerModel();
+	
 	private static List<File> filesArray = new ArrayList<File>();
 	private static List<String> fnameArray = new ArrayList<String>();
 	private static List<String> pathsArray = new ArrayList<String>();

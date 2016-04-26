@@ -3,6 +3,7 @@ package org.factpub.core;
 import java.io.File;
 
 import org.factpub.utility.FEConstants;
+import org.factpub.utility.Utility;
 
 public class FEWrapper implements FEConstants{
 	
@@ -32,8 +33,8 @@ public class FEWrapper implements FEConstants{
 		args[5] = "MD5"; 	// FILE: output_facts file path: or "MD5"
 		
 		//Use utility.utility.MD5() method in FactExtractor.jar to get MD5 filename.
-		utility.utility util = new utility.utility();
-		fileNameMD5 = FEConstants.DIR_JSON_OUTPUT + File.separator + util.MD5(file.getPath()) + "_facts.json";
+		
+		fileNameMD5 = Utility.getFileNameMD5(file);
 		
 		//FactExtractor logic starts here!
 		/**
@@ -77,7 +78,7 @@ public class FEWrapper implements FEConstants{
 			break;
 		}
 				
-		System.out.println("++++++++++++++++++Extracted!++++++++++++++++++++");
+		System.out.println("++++++++++++++++++FactExtractor Performed++++++++++++++++++++");
 		
 		return errorMsg;
 	}

@@ -7,6 +7,7 @@ import java.util.concurrent.Semaphore;
 import org.factpub.core.FEWrapper;
 import org.factpub.network.PostFile;
 import org.factpub.utility.FEConstants;
+import org.factpub.utility.Utility;
 
 public class FEThread implements Runnable {
 	
@@ -36,10 +37,11 @@ public class FEThread implements Runnable {
 			
 			this.semaphore.acquire();
 
-			String status = "Now Extracting...";
-			
+			String status = "Now Extracting...";			
 			Thread.sleep((long) (Math.random() * 1000)); //1秒以下のランダムな時間
 			updateStatusColumn(status, row);
+			
+			//MainFrame.fileTable getCellEditor(row, FEConstants.TABLE_COLUMN_STATUS);
 
 			status = FEWrapper.GUI_Wrapper(file);  // <--------------------------- where FactExtractor is executed!
 			// If success
@@ -50,17 +52,15 @@ public class FEThread implements Runnable {
 				try{    		    		
 		    		// Uploading Facts
 		    		if(status.equals(FEConstants.STATUS_UPLOADING)){
+		        		
+	        			System.out.println(Utility.getFileNameMD5(file));
+	        			
+	        			// File name must be MD5!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! otherwise it does get error.
+	        			File json = new File(Utility.getFileNameMD5(file));
+	        				
 		        		try{
-		        			System.out.println(FEWrapper.fileNameMD5);
-		        			
-		        			// File name must be MD5!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! otherwise it does get error.
-		        			File json = null;
-		        			
-		        			synchronized(this){
-			        			json = new File(FEWrapper.fileNameMD5);
-		        			}
-		        			
-		        			List<String> res = PostFile.uploadToFactpub(json);
+	        				List<String> res = PostFile.uploadToFactpub(json);
+	        				System.out.println("JSON can be written.");
 		        			
 		        			// If the server returns page title, put it into the array so browser can open the page when user click it.
 		        			if(res.get(0).contains(FEConstants.SERVER_RES_TITLE_BEGIN)){
@@ -80,7 +80,6 @@ public class FEThread implements Runnable {
 		        				updateStatusColumn(status, row);
 		        				
 		        			}
-		        			
 		        			
 		        			// embed HTML to the label
 		        			}catch(Exception e){
