@@ -39,6 +39,7 @@ import org.apache.commons.lang.StringUtils;
 import org.factpub.core.InitTempDir;
 import org.factpub.network.AuthMediaWikiId;
 import org.factpub.utility.FEConstants;
+import org.factpub.utility.Utility;
 
 public class MainFrame implements FEConstants {
 
@@ -49,7 +50,6 @@ public class MainFrame implements FEConstants {
 	private JPasswordField textWikiPass;
 	// private static JLabel lblAuthorized;
 	public static String JSONFileDirPath = "";
-	private static JLabel lblAnnouncement;
 
 	private static JScrollPane scrollPane = new JScrollPane();
 	
@@ -116,15 +116,15 @@ public class MainFrame implements FEConstants {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
-			// for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels())
-			// {
-			// if ("Nimbus".equals(info.getName())) {
-			// UIManager.setLookAndFeel(info.getClassName());
-			// break;
-			// }
-			//
-			//
-			// }
+//			 for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels())
+//			 {
+//			 if ("Nimbus".equals(info.getName())) {
+//			 UIManager.setLookAndFeel(info.getClassName());
+//			 break;
+//			 }
+//			
+//			
+//			 }
 		} catch (Exception e) {
 			// If Nimbus is not available, you can set the GUI to another look
 			// and feel.
@@ -141,15 +141,8 @@ public class MainFrame implements FEConstants {
 		ImageIcon DropIcon = new ImageIcon(getClass().getClassLoader().getResource(iconDropPath));
 
 		frameMain.setIconImage(MainIcon.getImage());
-
 		frameMain.setResizable(false);
-
-		// URL iconUrl =
-		// this.getClass().getClassLoader().getResource("resources/logo_factpub.png");
-		// ImageIcon icon = new ImageIcon(iconUrl);
-
-		// frameMain.setIconImage(imgDrop);
-
+		
 		// Main Panel setting
 		frameMain.setTitle(FEConstants.WINDOW_TITLE);
 		frameMain.setBounds(100, 100, 421, 390);
@@ -166,12 +159,8 @@ public class MainFrame implements FEConstants {
 
 		new DropTarget(scrollPane, dndListener);
 
-		// ImageIcon iconLogin = new
-		// ImageIcon(getClass().getClassLoader().getResource(FEConstants.IMAGE_BUTTON_LOGIN));
 		JButton btnLogin = new JButton("Login");
 
-		// btnLogin.setSelectedIcon(new
-		// ImageIcon("C:\\Users\\suns1\\Pictures\\Graphicloads-Filetype-Pdf.ico"));
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String wikiID = textWikiID.getText();
@@ -211,39 +200,6 @@ public class MainFrame implements FEConstants {
 		textWikiPass.setBounds(198, 0, 97, 20);
 		frameMain.getContentPane().add(textWikiPass);
 
-		/*
-		 * Announcement part BEGIN
-		 */
-		
-		// Announcement check
-		ArrayList<String> contentList = null;
-		String content = null;
-		// Check if Announcement is available.
-		try {
-			URL url = new URL(FEConstants.SERVER_ANNOUNCEMENT);
-			BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
-			String line;
-			contentList = new ArrayList<String>();
-			while ((line = in.readLine()) != null) {
-				contentList.add(line);
-			}
-			in.close();
-			content = StringUtils.join(contentList, " ");
-		} catch (MalformedURLException e) {
-			content = "NA";
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			content = "NoInternet";
-		}
-
-		JLabel lblAnnouncement = new JLabel(content);
-		lblAnnouncement.setForeground(Color.BLUE);
-		lblAnnouncement.setBounds(0, 31, 734, 14);
-		frameMain.getContentPane().add(lblAnnouncement);
-		
-		/*
-		 * Announcement part END
-		 */
 		
 		JButton btnRegister = new JButton("+");
 		btnRegister.setToolTipText("Create new factpub account");
@@ -269,18 +225,28 @@ public class MainFrame implements FEConstants {
 
 	public static void setViewportLabel(ImageIcon image){
 		JViewport view = scrollPane.getViewport();
-		JLabel label = new JLabel(image);
 		
-		
-		/*
-		 * Try using LayerPane for Announcement
-		 */
-		JLayeredPane layerPane = new JLayeredPane();
+		//JLabel label = new JLabel(image);
 		JPanel panel = new JPanel();
-		panel.add(label);		        
-		layerPane.add(panel, JLayeredPane.DEFAULT_LAYER);
+		//panel.add(label);
 		
-		view.setView(label);
+		JLayeredPane layerPane = new JLayeredPane();
+		layerPane.setLayout(null);
+		
+		System.out.println(scrollPane.getBounds());
+		
+		JLabel labelBackground = new JLabel(image);
+		labelBackground.setBounds(-1, -2, 415, 339);
+		System.out.println(labelBackground.getBounds());
+		
+		String announcement = Utility.getAnnouncement();
+		JLabel labelAnnounce = new JLabel(announcement);
+		labelAnnounce.setBounds(150, 280, 150, 50);
+		
+		layerPane.add(labelBackground, new Integer(0));
+		layerPane.add(labelAnnounce, new Integer(1));
+		
+		view.setView(layerPane);
 	}
 	
 	public static void setViewportTable(){
@@ -333,7 +299,6 @@ public class MainFrame implements FEConstants {
 				TableColumn column_2 = columnModel.getColumn(TABLE_COLUMN_STATUS);
 				column_2.setPreferredWidth(200);
 				column_2.setHeaderValue("Status");
-
 		
 		view.setView(fileTable);
 	}
