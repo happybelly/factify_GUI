@@ -1,3 +1,20 @@
+/**
+    Copyright (C) 2016, Genome Institute of Singapore, A*STAR
+    
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package org.factpub.gui;
 
 import java.awt.datatransfer.DataFlavor;
@@ -12,6 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 
+import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
 import org.factpub.utility.FEConstants;
@@ -44,7 +62,9 @@ public class DNDListener implements DropTargetListener{
     	// Change the view of component in JScrollPane
     	if(!flagDrop){
     		System.out.println("--------------------- flagDrop: False -> True -----------------------");
+
     		MainFrame.setViewportTable();
+    		
     		flagDrop = true;
     	}
     	
@@ -66,13 +86,6 @@ public class DNDListener implements DropTargetListener{
 
                     // Get all of the dropped files
 					List<File> files = (List) transferable.getTransferData(flavor);
-                    
-                    //////////////////////////////////
-                    // Thread: Allocate Thread Pool //
-                    //////////////////////////////////
-                   
-                    //ExecutorService service = Executors.newFixedThreadPool(files.size());
-                    //ExecutorService service = Executors.newFixedThreadPool(FEConstants.MAX_THREADS);
                     
                     // Loop them through
                     for (File file : files) {
@@ -121,28 +134,16 @@ public class DNDListener implements DropTargetListener{
 
 						MainFrame.setTableModel(tableModel);
 						
-						//JTable fileTable = MainPanel.getFileTable();
-						//fileTable.setModel(tableModel);
-						
 						i = i + 1;
-                    	
                     }
-                /////////////////////////////////
-                // Thread: close the pool      //
-                /////////////////////////////////
                 }
-
             } catch (Exception e) {
-
                 // Print out the error stack
                 e.printStackTrace();
-
             }
         }
-        
         // Inform that the drop is complete
         event.dropComplete(true);
-
     }    
     
 	@Override

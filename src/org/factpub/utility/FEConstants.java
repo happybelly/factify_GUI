@@ -1,10 +1,29 @@
+/**
+    Copyright (C) 2016, Genome Institute of Singapore, A*STAR
+    
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package org.factpub.utility;
 
 import java.io.File;
 
 public interface FEConstants {
 	
-	static final String WINDOW_TITLE = "factpub";
+	static final boolean FLAG_LOG = false;
+	
+	static final String WINDOW_TITLE = "factpub uploader";
 	static final int TABLE_COLUMN_NUM = 2;
 	static final int TABLE_COLUMN_FILE = 0;
 	static final int TABLE_COLUMN_STATUS = 1;
@@ -17,13 +36,11 @@ public interface FEConstants {
 	static final String STATUS_UPLOAD_DONE = "Upload Success!";
 	static final String STATUS_UPLOAD_FAILED = "Failed to upload.";
 	
-	// below constants must be the same to serverRequestHandler.go
+	// below constants must be the same to serverRequestHandler.go (serverside script)
 	static final String SERVER_RES_TITLE_BEGIN = "BEGINOFPAGETITLE:";
 	static final String SERVER_RES_TITLE_END = ":ENDOFPAGETITLE";
 	
 	static final String DIR_FE_HOME = System.getProperty("java.io.tmpdir") + "factpub";
-	//static final String DIR_FE_HOME = "factpub";
-	//static final String DIR_FE_HOME = System.getProperty("user.home") + File.separator + "factpub";
 	static final String DIR_RULE_INPUT =  DIR_FE_HOME + File.separator + "Rule_INPUT";
 	static final String DIR_JSON_OUTPUT =  DIR_FE_HOME + File.separator + "JSON";
 	
@@ -34,9 +51,8 @@ public interface FEConstants {
 	static final String IP_ADDRESS = "factpub.org";
 	
 	static final String IMAGE_DND = "Drop-Academic-Papers(PDF)-Here.png";
-	static final String IMAGE_BUTTON_LOGIN = "icon_button_login.jpg";
-	static final String IMAGE_BUTTON_REGISTER = "icon_button_register.jpg";
-	
+	static final String IMAGE_ICON = "logo_factpub.png";
+
 	static final String SERVER_ANNOUNCEMENT = "http://" + IP_ADDRESS + "/public/announcement.txt";
 	static final String SERVER_TOP = "http://" + IP_ADDRESS + "/wiki/";
 	static final String SERVER_PUBLIC = "http://" + IP_ADDRESS + "/public";
@@ -58,13 +74,13 @@ public interface FEConstants {
 	
 	static final String[] FILES_RULE_INPUT = {
 			"comparative_1.txt",
-			"comparative_1_old.txt",	// added on 1-APR
+			"comparative_1_old.txt",	// added on 1-APR-2016
 			"comparative_keywords_from_Liu.txt", 
 			"invalid_words_for_ngram.txt",
 			"negation_bioscope.txt",
 			"negative-words.txt",
 			"operator_1.txt",
-			"opinions_1.txt",	// added on 1-APR
+			"opinions_1.txt",	// added on 1-APR-2016
 			"rel_1.txt",
 			"Rule_POSTag_Comparatives.txt",
 			"Rule_POSTag_Nouns.txt",

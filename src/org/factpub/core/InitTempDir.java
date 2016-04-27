@@ -67,7 +67,6 @@ public class InitTempDir implements FEConstants {
 			        // Set up input files
 			        InputStream is = MainFrame.class.getClassLoader().getResourceAsStream(filesRuleInput[i]);
 			        
-			        //BufferedReader reader = getJarReader("Rule_INPUT/RuleMatcher.json");
 			        System.out.println(file.toPath());
 			        try {
 			            Files.copy(is, file.toPath());
@@ -84,45 +83,33 @@ public class InitTempDir implements FEConstants {
 		}
 	}
 	
-    /*
-     * Delete file or directory
-     */
+    
+    // Delete file or directory
     private static void delete(File f){
-        /*
-         * Don't do anything if file or directory does not exist
-         */
+        
+        // Don't do anything if file or directory does not exist
         if(f.exists() == false) {
             return;
         }
 
         if(f.isFile()) {
-            /*
-             * if it's file, delete it.
-             */
+            
+            // if it's file, delete it.
             f.delete();
 
         } else if(f.isDirectory()){
-            /*
-             * if it's directory, delete all the contents'
-             */
-
-            /*
-             * get the contents
-             */
+            // if it's directory, delete all the contents'
+            // get the contents
+            
             File[] files = f.listFiles();
 
-            /*
-             * delete all files and directory
-             */
+            //delete all files and directory
             for(int i=0; i<files.length; i++) {
-                /*
-                 * use recursion
-                 */
+            	// use recursion
                 delete( files[i] );
             }
-            /*
-             * delete itself
-             */
+            
+            // delete itself
             f.delete();
         }
     }
