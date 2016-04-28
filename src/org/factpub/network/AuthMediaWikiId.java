@@ -88,7 +88,7 @@ public class AuthMediaWikiId {
 					
 					// get User Name from JSON
 					JsonElement username = jobject2.get("lgusername");
-				    String authorisedUser = username.toString().replace("\"", "");
+				    authorisedUser = username.toString().replace("\"", "");
 				    
 				    // replace space with underscore
 				    authorisedUser = authorisedUser.replace(" ", "_");
@@ -145,13 +145,9 @@ public class AuthMediaWikiId {
 		JsonElement jelement = new JsonParser().parse(resstr);
 	    JsonObject  jobject = jelement.getAsJsonObject();
 	    jobject = jobject.getAsJsonObject("login");
-	    
 	  
 		//print result
 	    System.out.println(jobject.toString() + '\n');
-		//System.out.println(token + " " + cookieprefix + " " + sessionid);
-		
-		
 		
 		return jobject.toString();
 
@@ -204,14 +200,9 @@ public class AuthMediaWikiId {
 		JsonElement jelement = new JsonParser().parse(resstr);
 	    JsonObject  jobject = jelement.getAsJsonObject();
 	    jobject = jobject.getAsJsonObject("login");
-	    
-	   
-		
+	    	
 		//print result
 	    System.out.println(jobject.toString() + '\n');
-		//System.out.println(token + " " + cookieprefix + " " + sessionid);
-		
-		
 		
 		return jobject.toString();
 

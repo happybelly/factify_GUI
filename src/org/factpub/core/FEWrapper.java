@@ -1,3 +1,20 @@
+/**
+    Copyright (C) 2016, Genome Institute of Singapore, A*STAR
+    
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package org.factpub.core;
 
 import java.io.File;
@@ -10,6 +27,7 @@ public class FEWrapper implements FEConstants{
 	public static String fileNameMD5 = null;	
 
 	public static String GUI_Wrapper(File file){
+		
 		// When file is chosen, want to make sure the arguments are set.
 	    // set up the arguments for FactExtactor
 		String[] args = new String[6];
@@ -33,7 +51,6 @@ public class FEWrapper implements FEConstants{
 		args[5] = "MD5"; 	// FILE: output_facts file path: or "MD5"
 		
 		//Use utility.utility.MD5() method in FactExtractor.jar to get MD5 filename.
-		
 		fileNameMD5 = Utility.getFileNameMD5(file);
 		
 		//FactExtractor logic starts here!
