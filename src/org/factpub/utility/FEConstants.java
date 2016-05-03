@@ -59,7 +59,10 @@ public interface FEConstants {
 	static final String SERVER_JSON_SAVE_DIR = "http://" + IP_ADDRESS + "/public/facts_GUIFactExtractor";
 	
 	static final String SERVER_POST_HANDLER = "http://" + IP_ADDRESS + ":8080/uploadGUIFactExtractor";
-	static final String SERVER_API = "http://" + IP_ADDRESS + "/wiki/api.php?";
+	//use https for security
+	//static final String SERVER_API = "http://" + IP_ADDRESS + "/wiki/api.php?";
+	static final String SERVER_API = "https://" + IP_ADDRESS + "/wiki/api.php?";
+
 	static final String SERVER_UPLOAD_FILE_NAME = "uploadfile";
 	
 	static final String PAGE_CREATED = "http://" + IP_ADDRESS + "/wiki/index.php/";

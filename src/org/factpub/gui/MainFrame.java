@@ -23,6 +23,8 @@ import java.awt.EventQueue;
 import java.awt.dnd.DropTarget;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -260,10 +262,13 @@ public class MainFrame implements FEConstants {
 		fileTable.setBackground(Color.WHITE);
 		fileTable.setAutoCreateRowSorter(true);
 		fileTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-
-		fileTable.addMouseListener(new java.awt.event.MouseAdapter() {
+		
+		//Don't allow editing cell.
+		fileTable.setEnabled(false);
+		
+		fileTable.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(java.awt.event.MouseEvent event) {
+			public void mouseClicked(MouseEvent event) {
 				int row = fileTable.rowAtPoint(event.getPoint());
 				int col = fileTable.columnAtPoint(event.getPoint());
 				if (col == TABLE_COLUMN_STATUS) {
@@ -282,7 +287,7 @@ public class MainFrame implements FEConstants {
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
-					}
+					}			
 				}
 			}
 		});
