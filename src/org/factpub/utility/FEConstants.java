@@ -60,8 +60,8 @@ public interface FEConstants {
 	
 	static final String SERVER_POST_HANDLER = "http://" + IP_ADDRESS + ":8080/uploadGUIFactExtractor";
 	//use https for security
-	//static final String SERVER_API = "http://" + IP_ADDRESS + "/wiki/api.php?";
-	static final String SERVER_API = "https://" + IP_ADDRESS + "/wiki/api.php?";
+	static final String SERVER_API = "http://" + IP_ADDRESS + "/wiki/api.php?";
+	//static final String SERVER_API = "https://" + IP_ADDRESS + "/wiki/api.php?";
 
 	static final String SERVER_UPLOAD_FILE_NAME = "uploadfile";
 	

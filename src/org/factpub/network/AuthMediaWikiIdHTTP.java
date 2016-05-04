@@ -32,7 +32,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 
-public class AuthMediaWikiId_save {
+public class AuthMediaWikiIdHTTP {
 
 	private final String USER_AGENT = "Mozilla/5.0";
 	
@@ -40,11 +40,10 @@ public class AuthMediaWikiId_save {
 	
 	public static void authMediaWikiAccount (String wikiId, String wikiPass) throws Exception  {
 		
-		AuthMediaWikiId_save http = new AuthMediaWikiId_save();
+		AuthMediaWikiIdHTTP http = new AuthMediaWikiIdHTTP();
 		
 		System.out.println("\nAuthMediaWikiId - Send Http POST request");
 		
-		//String returns1 = http.sendPost1(wikiId, wikiPass,"","");
 		String returns1 = http.sendPost1(wikiId, wikiPass,"","");
 		
 		JsonElement jelement1 = new JsonParser().parse(returns1);

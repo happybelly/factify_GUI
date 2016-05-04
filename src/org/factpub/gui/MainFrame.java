@@ -49,7 +49,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
 import org.factpub.core.InitTempDir;
-import org.factpub.network.AuthMediaWikiId;
+import org.factpub.network.AuthMediaWikiIdHTTP;
 import org.factpub.utility.FEConstants;
 import org.factpub.utility.Utility;
 
@@ -142,7 +142,7 @@ public class MainFrame implements FEConstants {
 				String wikiPass = new String(textWikiPass.getPassword());
 
 				try {
-					AuthMediaWikiId.authMediaWikiAccount(wikiID, wikiPass.toString());
+					AuthMediaWikiIdHTTP.authMediaWikiAccount(wikiID, wikiPass.toString());
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

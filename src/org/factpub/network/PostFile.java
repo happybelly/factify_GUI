@@ -42,7 +42,7 @@ public class PostFile {
     HttpClient httpclient = new DefaultHttpClient();
     httpclient.getParams().setParameter(CoreProtocolPNames.PROTOCOL_VERSION, HttpVersion.HTTP_1_1);
     
-    String postUrl = FEConstants.SERVER_POST_HANDLER + "?id=" + AuthMediaWikiId.authorisedUser;
+    String postUrl = FEConstants.SERVER_POST_HANDLER + "?id=" + AuthMediaWikiIdHTTP.authorisedUser;
     
     HttpPost httppost = new HttpPost(postUrl);
     
