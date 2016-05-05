@@ -1,28 +1,32 @@
 /**
-    Copyright (C) 2016, Genome Institute of Singapore, A*STAR
-    
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-    
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-    
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *  Author: Sun SAGONG
+ *  Copyright (C) 2016, Genome Institute of Singapore, A*STAR
+ *   
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *   (at your option) any later version.
+ *   
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *   
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 
 package org.factpub.core;
 
 import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import org.factpub.utility.FEConstants;
 import org.factpub.utility.Utility;
 
-public class FEWrapper implements FEConstants{
+public class FEWrapperGUI implements FEConstants{
 	
 	public static String fileNameMD5 = null;	
 
@@ -42,6 +46,7 @@ public class FEWrapper implements FEConstants{
 		 * 5: output_facts file path: or "MD5"
 		 * @param output
 		 */
+		
 		
 		args[0] = file.getPath(); 		// File: PDF with full path
 		args[1] = DIR_JSON_OUTPUT + File.separator;		// Directory where JSON is output

@@ -1,18 +1,19 @@
 /**
-    Copyright (C) 2016, Genome Institute of Singapore, A*STAR
-    
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-    
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-    
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *  Author: Sun SAGONG
+ *  Copyright (C) 2016, Genome Institute of Singapore, A*STAR
+ *   
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *   (at your option) any later version.
+ *   
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *   
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 package org.factpub.gui;
@@ -25,10 +26,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -48,7 +46,6 @@ import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
-import org.factpub.core.InitTempDir;
 import org.factpub.network.AuthMediaWikiIdHTTP;
 import org.factpub.utility.FEConstants;
 import org.factpub.utility.Utility;
@@ -67,7 +64,7 @@ public class MainFrame implements FEConstants {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void launchGUI() {
 
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -90,12 +87,11 @@ public class MainFrame implements FEConstants {
 		// Step 1: initialize GUI
 		initGUIDesign();
 
-		// Step 2: initialize %userhome%/factpub folder
-		initTempDir();
+		
 	}
 
 	/**
-	 * Step 1
+	 * Step 1: initialize GUI
 	 */
 	private void initGUIDesign() {
 
@@ -134,15 +130,21 @@ public class MainFrame implements FEConstants {
 
 		new DropTarget(scrollPane, dndListener);
 
-		JButton btnLogin = new JButton("Login");
-
+		JButton btnLogin = new JButton();
+		btnLogin.setText("Login");
+		frameMain.getRootPane().setDefaultButton(btnLogin);
+		btnLogin.setToolTipText("Currently logged in as " + AuthMediaWikiIdHTTP.authorisedUser);
+		
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String wikiID = textWikiID.getText();
 				String wikiPass = new String(textWikiPass.getPassword());
 
 				try {
+					
 					AuthMediaWikiIdHTTP.authMediaWikiAccount(wikiID, wikiPass.toString());
+					btnLogin.setToolTipText("Currently login as " + AuthMediaWikiIdHTTP.authorisedUser);
+					
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -198,31 +200,7 @@ public class MainFrame implements FEConstants {
 		frameMain.getContentPane().add(btnRegister);
 	}
 	
-	/**
-	 * Step 2
-	 */
-	private void initTempDir() {
-		InitTempDir.makeTempDir();
-		InitTempDir.makeJsonDir();
-		InitTempDir.makeRuleINPUTDir();
-		InitTempDir.copyRuleInputFiles();
-		
-		// if you keep the log in log.txt, set FLAG_LOG = True 
-		if(FEConstants.FLAG_LOG){
-			String logFile = InitTempDir.makeLogFile();
-			
-			// Set up log output stream
-			FileOutputStream fos = null;
-			try {
-				fos = new FileOutputStream(logFile);
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			PrintStream ps = new PrintStream(fos);
-			System.setOut(ps); 
-		}
-	}
+	
 	
 	public static void setViewportLabel(ImageIcon image){
 		JViewport view = scrollPane.getViewport();
@@ -260,7 +238,7 @@ public class MainFrame implements FEConstants {
 		tableModel = new DefaultTableModel(0, TABLE_COLUMN_NUM);
 		JTable fileTable = new JTable(tableModel);
 		fileTable.setBackground(Color.WHITE);
-		fileTable.setAutoCreateRowSorter(true);
+		fileTable.setAutoCreateRowSorter(false);
 		fileTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		
 		//Don't allow editing cell.

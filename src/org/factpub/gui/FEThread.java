@@ -1,19 +1,21 @@
 /**
-    Copyright (C) 2016, Genome Institute of Singapore, A*STAR
-    
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-    
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-    
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *  Author: Sun SAGONG
+ *  Copyright (C) 2016, Genome Institute of Singapore, A*STAR
+ *   
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *   (at your option) any later version.
+ *   
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *   
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 
 package org.factpub.gui;
 
@@ -21,7 +23,7 @@ import java.io.File;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 
-import org.factpub.core.FEWrapper;
+import org.factpub.core.FEWrapperGUI;
 import org.factpub.network.PostFile;
 import org.factpub.utility.FEConstants;
 import org.factpub.utility.Utility;
@@ -55,12 +57,12 @@ public class FEThread implements Runnable {
 			this.semaphore.acquire();
 
 			String status = "Now Extracting...";			
-			Thread.sleep((long) (Math.random() * 1000)); //1秒以下のランダムな時間
+			Thread.sleep((long) (Math.random() * 1000)); //random time less than 1000mil sec
 			updateStatusColumn(status, row);
 			
 			//MainFrame.fileTable getCellEditor(row, FEConstants.TABLE_COLUMN_STATUS);
 
-			status = FEWrapper.GUI_Wrapper(file);  // <--------------------------- where FactExtractor is executed!
+			status = FEWrapperGUI.GUI_Wrapper(file);  // <--------------------------- where FactExtractor is executed!
 			// If success
 			updateStatusColumn(status, row);
 			
@@ -73,11 +75,10 @@ public class FEThread implements Runnable {
 	        			System.out.println(Utility.getFileNameMD5(file));
 	        			
 	        			// File name must be MD5!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! otherwise it does get error.
-	        			File json = new File(Utility.getFileNameMD5(file));
+	        			File json = new File(FEConstants.DIR_JSON_OUTPUT + File.separator + Utility.getFileNameMD5(file));
 	        				
 		        		try{
 	        				List<String> res = PostFile.uploadToFactpub(json);
-	        				System.out.println("JSON can be written.");
 		        			
 		        			// If the server returns page title, put it into the array so browser can open the page when user click it.
 		        			if(res.get(0).contains(FEConstants.SERVER_RES_TITLE_BEGIN)){
@@ -87,7 +88,7 @@ public class FEThread implements Runnable {
 		        				System.out.println(pageTitle);
 		        				DNDListener.setPageTitle(row, pageTitle);
 		        				
-		        				status = "<html><u><font color=\"blue\">Upload Success!</font></u></html>";
+		        				status = "<html><u><font color=\"blue\">Upload Success! (click here)</font></u></html>";
 		        				updateStatusColumn(status, row);
 		        				
 		        				//change table color        				

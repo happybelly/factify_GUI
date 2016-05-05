@@ -1,25 +1,30 @@
 /**
-    Copyright (C) 2016, Genome Institute of Singapore, A*STAR
-    
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-    
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-    
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *  Author: Sun SAGONG
+ *  Copyright (C) 2016, Genome Institute of Singapore, A*STAR
+ *   
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *   (at your option) any later version.
+ *   
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *   
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 
 package org.factpub.core;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
 import java.nio.file.Files;
 
 import org.factpub.gui.MainFrame;
@@ -84,7 +89,7 @@ public class InitTempDir implements FEConstants {
 			        // Set up input files
 			        InputStream is = MainFrame.class.getClassLoader().getResourceAsStream(filesRuleInput[i]);
 			        
-			        System.out.println(file.toPath());
+			        //System.out.println(file.toPath());
 			        try {
 			            Files.copy(is, file.toPath());
 			        } catch (IOException e) {
@@ -92,7 +97,7 @@ public class InitTempDir implements FEConstants {
 			            System.out.println("File copy error");
 			        }
 		        }
-		        System.out.println(file.getName() + " is created.");
+		        //System.out.println(file.getName() + " is created.");
 		        
 			}catch(Exception e){
 				System.out.println("resource access error.");
@@ -100,6 +105,28 @@ public class InitTempDir implements FEConstants {
 		}
 	}
 	
+	public static void initTempDir() {
+		InitTempDir.makeTempDir();
+		InitTempDir.makeJsonDir();
+		InitTempDir.makeRuleINPUTDir();
+		InitTempDir.copyRuleInputFiles();
+		
+		// if you keep the log in log.txt, set FLAG_LOG = True 
+		if(FEConstants.FLAG_LOG){
+			String logFile = InitTempDir.makeLogFile();
+			
+			// Set up log output stream
+			FileOutputStream fos = null;
+			try {
+				fos = new FileOutputStream(logFile);
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			PrintStream ps = new PrintStream(fos);
+			System.setOut(ps); 
+		}
+	}
     
     // Delete file or directory
     private static void delete(File f){
