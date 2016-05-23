@@ -27,6 +27,7 @@ public class FEWrapperCUI implements FEConstants {
 	 * 3: PDF Converter succeeded, but no body text (or section heading)
 	 * 4: Facts Exists.
 	 */
+		
 	// When file is chosen, want to make sure the arguments are set.
     // set up the arguments for FactExtactor
 	String[] args = new String[6];
@@ -102,20 +103,20 @@ public class FEWrapperCUI implements FEConstants {
 				String pageTitle = (String) res.get(0).subSequence(res.get(0).indexOf(FEConstants.SERVER_RES_TITLE_BEGIN) + FEConstants.SERVER_RES_TITLE_BEGIN.length(), res.get(0).indexOf(FEConstants.SERVER_RES_TITLE_END));
 				pageTitle = pageTitle.replace(" ", "_");
 				System.out.println(pageTitle);
-				
-				// Launch Browser
-				Desktop desktop = Desktop.getDesktop();
 				String uriString = FEConstants.PAGE_CREATED + pageTitle;
-				if (pageTitle != null) {
-					try {
-						URI uri = new URI(uriString);
-						desktop.browse(uri);
-					} catch (URISyntaxException e) {
-						e.printStackTrace();
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-				}			
+				
+//				// Launch Browser
+//				Desktop desktop = Desktop.getDesktop();
+//				if (pageTitle != null) {
+//					try {
+//						URI uri = new URI(uriString);
+//						desktop.browse(uri);
+//					} catch (URISyntaxException e) {
+//						e.printStackTrace();
+//					} catch (IOException e) {
+//						e.printStackTrace();
+//					}
+//				}			
 				
 				status = "Page is created: " + uriString;
 				

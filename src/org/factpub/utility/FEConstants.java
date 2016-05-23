@@ -23,7 +23,7 @@ import java.io.File;
 
 public interface FEConstants {
 	
-	static final boolean FLAG_LOG = false;
+	static final boolean FLAG_LOG = true;
 	
 	static final String WINDOW_TITLE = "factpub uploader";
 	static final int TABLE_COLUMN_NUM = 2;
