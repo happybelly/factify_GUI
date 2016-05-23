@@ -8,7 +8,7 @@
 ## Fact Extractor Core module
 https://github.com/happybelly/fact-extractor-multiple-java-projects
 
-*factpub_uploader* relies on "factextractor" core module is available in the above repository.
+*factpub_uploader* relies on "factextractor" core module, which source code is available in the above repository.
 
 ## How to build? (eclipse)
 ##### Step 1. download the zip from the top of this git repository and expand it to your local folder.
