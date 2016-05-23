@@ -7,7 +7,8 @@
 
 ## Fact Extractor Core module
 https://github.com/happybelly/fact-extractor-multiple-java-projects
-*factpub_uploader* relies on "factextractor" core module developed by Xiaocheng Huang.
+
+*factpub_uploader* relies on "factextractor" core module is available in the above repository.
 
 ## How to build? (eclipse)
 ##### Step 1. download the zip from the top of this git repository and expand it to your local folder.
@@ -23,6 +24,7 @@ https://github.com/happybelly/fact-extractor-multiple-java-projects
 
 ## LICENSE [GNU General Public License]
 Author: Sun SAGONG
+
 Copyright (C) 2016, Genome Institute of Singapore, A*STAR
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
