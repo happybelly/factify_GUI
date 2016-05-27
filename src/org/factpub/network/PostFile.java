@@ -35,7 +35,6 @@ import org.apache.http.params.CoreProtocolPNames;
 import org.apache.http.util.EntityUtils;
 import org.factpub.utility.FEConstants;
 
-
 public class PostFile {
   public static List<String> uploadToFactpub(File file) throws Exception {
 	List<String> status = new ArrayList<String>();
