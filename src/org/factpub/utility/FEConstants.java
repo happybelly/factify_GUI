@@ -93,7 +93,9 @@ public interface FEConstants {
 			"RuleMatcher.json",
 			"signal_1.txt",
 			"uncertainty_bioscope.txt",
-			"uncertainty-words.txt"
+			"uncertainty-words.txt",
+			"prepositions.txt",	// added on 13-Jun-2016
+			"adverbs_common.txt"
 	};
 	
 }
