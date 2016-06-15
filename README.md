@@ -21,7 +21,7 @@ https://github.com/happybelly/fact-extractor-multiple-java-projects
 ![factpub_uploader screenshot](http://factpub.org/img/github/how_to_develop_3.png)
 ##### Step 5. You are ready to develop factpub_uploader from eclipse.
 ![factpub_uploader screenshot](http://factpub.org/img/github/how_to_develop_4.png)
-#### Step 6.  Under "Run configurations", make sure JavaSE-1.8 is selected and use.
+#### Step 6.  Under "Run configurations", make sure JavaSE-1.8 is used.
 
 ## LICENSE [GNU General Public License]
 Author: Sun SAGONG
