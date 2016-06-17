@@ -49,16 +49,19 @@ public interface FEConstants {
 	static final String FILE_RULE_MATCHER = DIR_RULE_INPUT + File.separator + "RuleMatcher.json";
 	static final String FILE_ANNOUNCEMENT = DIR_FE_HOME + File.separator + "announcement.txt";
 	static final String FILE_LOG = DIR_FE_HOME + File.separator + "log.txt";
+	static final String FILE_RULE_INPUT_ZIP = "/factify/Rule_INPUT.zip";
 	
 	static final String IP_ADDRESS = "factpub.org";
 	
 	static final String IMAGE_DND = "Drop-Academic-Papers(PDF)-Here.png";
 	static final String IMAGE_ICON = "logo_factpub.png";
+	
 
+	static final String SERVER_PUBLIC = "http://" + IP_ADDRESS + "/public";
+	static final String SERVER_RULE_INPUT_ZIP = SERVER_PUBLIC + FILE_RULE_INPUT_ZIP;
+	
 	static final String SERVER_ANNOUNCEMENT = "http://" + IP_ADDRESS + "/public/announcement.txt";
 	static final String SERVER_TOP = "http://" + IP_ADDRESS + "/wiki/";
-	static final String SERVER_PUBLIC = "http://" + IP_ADDRESS + "/public";
-	static final String SERVER_JSON_SAVE_DIR = "http://" + IP_ADDRESS + "/public/facts_GUIFactExtractor";
 	
 	static final String SERVER_POST_HANDLER = "http://" + IP_ADDRESS + ":8080/uploadGUIFactExtractor";
 	//use https for security
@@ -76,26 +79,5 @@ public interface FEConstants {
 	static final String FE_STATUS_CODE_2 = "PDF Converter Failed";
 	static final String FE_STATUS_CODE_3 = "PDF Converter Succeeded, but no body text (or section heading";
 	static final String FE_STATUS_CODE_4 = "Facts Exists";
-	
-	static final String[] FILES_RULE_INPUT = {
-			"comparative_1.txt",
-			"comparative_1_old.txt",	// added on 1-APR-2016
-			"comparative_keywords_from_Liu.txt", 
-			"invalid_words_for_ngram.txt",
-			"negation_bioscope.txt",
-			"negative-words.txt",
-			"operator_1.txt",
-			"opinions_1.txt",	// added on 1-APR-2016
-			"rel_1.txt",
-			"Rule_POSTag_Comparatives.txt",
-			"Rule_POSTag_Nouns.txt",
-			"Rule_RegExp.txt",
-			"RuleMatcher.json",
-			"signal_1.txt",
-			"uncertainty_bioscope.txt",
-			"uncertainty-words.txt",
-			"prepositions.txt",	// added on 13-Jun-2016
-			"adverbs_common.txt"
-	};
-	
+		
 }

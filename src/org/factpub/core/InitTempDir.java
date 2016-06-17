@@ -20,14 +20,17 @@
 package org.factpub.core;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintStream;
-import java.nio.file.Files;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
-import org.factpub.gui.MainFrame;
 import org.factpub.utility.FEConstants;
 
 public class InitTempDir implements FEConstants {
@@ -51,15 +54,6 @@ public class InitTempDir implements FEConstants {
 		}
 		return dirJSON.getAbsolutePath();
 	}
-
-	public static String makeRuleINPUTDir() {
-		// Create a Directory under user home 
-		File dirRuleINPUT = new File(DIR_RULE_INPUT);
-		if(!dirRuleINPUT.exists()){
-			dirRuleINPUT.mkdirs();
-		}
-		return dirRuleINPUT.getAbsolutePath();
-	}
 	
 	public static String makeLogFile() {
 		// Create a Directory under user home 
@@ -76,40 +70,77 @@ public class InitTempDir implements FEConstants {
 		return fileLog.getAbsolutePath();
 	}
 	
-	public static void copyRuleInputFiles() {
-		final String[] filesRuleInput = FILES_RULE_INPUT;
-		
-		// Copy the contents of Rule_INPUT
-		for(int i = 0; i < filesRuleInput.length ;i++){
-			try{
-				String outFile = DIR_RULE_INPUT;
-		        File file = new File(outFile, filesRuleInput[i]);				
-		        if(!file.exists()){
-
-			        // Set up input files
-			        InputStream is = MainFrame.class.getClassLoader().getResourceAsStream(filesRuleInput[i]);
-			        
-			        //System.out.println(file.toPath());
-			        try {
-			            Files.copy(is, file.toPath());
-			        } catch (IOException e) {
-			            e.printStackTrace();
-			            System.out.println("File copy error");
-			        }
-		        }
-		        //System.out.println(file.getName() + " is created.");
-		        
-			}catch(Exception e){
-				System.out.println("resource access error.");
-			}
-		}
+	public static void downloadRuleInputFiles() {
+		URL url;
+		FileInputStream  fileIn  = null;
+		FileOutputStream fileOut = null;
+		try {
+			url = new URL(FEConstants.SERVER_RULE_INPUT_ZIP);
+			URLConnection uc = url.openConnection(); 
+			ZipInputStream zipIn = new ZipInputStream(uc.getInputStream()); 
+			System.out.println("download success!");
+	    	try{
+	            File outDir = new File(FEConstants.DIR_RULE_INPUT);
+	            
+	            // Open zip file
+	            ZipEntry entry = null;
+	            while( ( entry = zipIn.getNextEntry() ) != null ){
+	                if( entry.isDirectory() ){
+	                    String relativePath = entry.getName();
+	                    outDir = new File( outDir, relativePath );
+	                    outDir.mkdirs();
+	                    
+	                } else {
+	                    String relativePath = entry.getName();
+	                    File   outFile = new File( outDir, relativePath );
+	                    
+	                    File   parentFile = outFile.getParentFile();
+	                    parentFile.mkdirs();
+	                    
+	                    fileOut = new FileOutputStream( outFile );
+	                    
+	                    byte[] buf  = new byte[ 256 ];
+	                    int    size = 0;
+	                    while( ( size = zipIn.read( buf ) ) > 0 ){
+	                        fileOut.write( buf, 0, size );
+	                    }
+	                    fileOut.close();
+	                    fileOut = null;
+	                }
+	                zipIn.closeEntry();
+	            }
+	            
+	        }catch( Exception e){
+	            e.printStackTrace();
+	            
+	        } finally {
+	            if(fileIn!= null){
+	                try{
+	                    fileIn.close();
+	                }catch( Exception e){}
+	            }
+	            if( fileOut != null ){
+	                try{
+	                    fileOut.close();
+	                }catch( Exception e){}
+	            }            
+	        }
+			
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("MalformedURLException error downloading Rule_INPUT");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("IOException error downloading Rule_INPUT");
+		} 		
 	}
 	
 	public static void initTempDir() {
 		InitTempDir.makeTempDir();
 		InitTempDir.makeJsonDir();
-		InitTempDir.makeRuleINPUTDir();
-		InitTempDir.copyRuleInputFiles();
+		InitTempDir.downloadRuleInputFiles();
 		
 		// if you keep the log in log.txt, set FLAG_LOG = True 
 		if(FEConstants.FLAG_LOG){

@@ -48,7 +48,7 @@ public class TestCases implements FEConstants {
 		InitTempDir.makeTempDir();
 		InitTempDir.makeJsonDir();
 		InitTempDir.makeLogFile();
-		InitTempDir.makeRuleINPUTDir();
+		InitTempDir.downloadRuleInputFiles();
 		
 		File dirTemp = new File(DIR_FE_HOME);
 		File dirJSON = new File(DIR_JSON_OUTPUT);
@@ -85,13 +85,8 @@ public class TestCases implements FEConstants {
 		File non_pdf = new File("C:\\Users\\suns1\\Desktop\\workspace\\factpub_uploader\\resources\\test\\test.txt");
 		String msg = FEWrapperGUI.GUI_Wrapper(non_pdf);
 		System.out.println(msg);
-<<<<<<< HEAD
-		System.out.println(FE_STATUS_CODE_MINUS_1);
-		assertEquals(FE_STATUS_CODE_MINUS_1, msg); //PDF Converter Failed
-=======
 		System.out.println(FE_STATUS_CODE_2);
 		assertEquals(FE_STATUS_CODE_2, msg); //PDF Converter Failed
->>>>>>> 4816207... Added TestCases for testing
 	}
 
 	// Test Case: test factextractor works well for normal pdf paper
@@ -103,13 +98,8 @@ public class TestCases implements FEConstants {
 		String msg = FEWrapperGUI.GUI_Wrapper(pdf);
 		
 		System.out.println(msg);
-<<<<<<< HEAD
-		System.out.println(FE_STATUS_CODE_MINUS_1);
-		assertEquals(FE_STATUS_CODE_MINUS_1, msg); //Uploading...
-=======
 		System.out.println(FE_STATUS_CODE_1);
 		assertEquals(FE_STATUS_CODE_1, msg); //Uploading...
->>>>>>> 4816207... Added TestCases for testing
 	}
 	
 	// Test Case: test uploading JSON file is successful and page title is returned.
@@ -140,13 +130,8 @@ public class TestCases implements FEConstants {
 		System.out.println("testCase6");
 		
 		// Please set up valid user id and password for factpub.org
-<<<<<<< HEAD
 		String user_id = "dummyid";
 		String user_pass = "dummypass";
-=======
-		String user_id = "Sagong.sun";
-		String user_pass = "sunsun0101";
->>>>>>> 4816207... Added TestCases for testing
 		
 		AuthMediaWikiIdHTTP.authorisedUser = "Anonymous";
 		AuthMediaWikiIdHTTP.authMediaWikiAccount(user_id, user_pass);
