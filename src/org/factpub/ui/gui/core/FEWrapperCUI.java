@@ -1,8 +1,6 @@
 package org.factpub.ui.gui.core;
 
 import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
 import org.factpub.factify.Factify;
@@ -38,13 +36,9 @@ public class FEWrapperCUI implements FEConstants {
 	 * 5: output_facts file path: or "MD5"
 	 * @param output
 	 */
-	
-	Path currentRelativePath = Paths.get("");
-	String currentDir = currentRelativePath.toAbsolutePath().toString();
-	System.out.println(currentDir);
-	
+		
 	args[0] = pdf; 		// File: PDF with full path
-	args[1] = currentDir + File.separator;		// Directory where JSON is output
+	args[1] = DIR_JSON_OUTPUT + File.separator;		// Directory where JSON is output
 	args[2] = DIR_JSON_OUTPUT + File.separator; 	// Directory for debug - can be suppressed.
 	args[3] = DIR_RULE_INPUT + File.separator + "RuleMatcher.json";
 	args[4] = ""; 			// File: output.file only - without pathargs[1] = DIR_JSON_OUTPUT + File.separator;		// Directory where JSON is output

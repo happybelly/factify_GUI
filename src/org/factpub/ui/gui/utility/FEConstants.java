@@ -80,7 +80,7 @@ public interface FEConstants {
 
 	static final String FE_STATUS_CODE_MINUS_1 = "Input parameter error";
 	static final String FE_STATUS_CODE_0 = "Input file not exist";
-	static final String FE_STATUS_CODE_1 = "Uploading...";
+	static final String FE_STATUS_CODE_1 = STATUS_UPLOADING;
 	static final String FE_STATUS_CODE_2 = "PDF Converter Failed";
 	static final String FE_STATUS_CODE_3 = "PDF Converter Succeeded, but no body text (or section heading";
 	static final String FE_STATUS_CODE_4 = "Facts Exists";

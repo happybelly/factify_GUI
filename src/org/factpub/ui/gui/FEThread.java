@@ -67,11 +67,12 @@ public class FEThread implements Runnable {
 			updateStatusColumn(status, row);
 			
 			if(status == FEConstants.FE_STATUS_CODE_1){
-				// Fact Extractor
+				// Fact Extractor				
 				try{    		    		
 		    		// Uploading Facts
+					
 		    		if(status.equals(FEConstants.STATUS_UPLOADING)){
-		        		
+		        				    			
 	        			System.out.println(Utility.getFileNameMD5(file));
 	        			
 	        			// File name must be MD5!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! otherwise it does get error.
@@ -79,7 +80,7 @@ public class FEThread implements Runnable {
 	        				
 		        		try{
 	        				List<String> res = PostFile.uploadToFactpub(json);
-		        			
+	        				
 		        			// If the server returns page title, put it into the array so browser can open the page when user click it.
 		        			if(res.get(0).contains(FEConstants.SERVER_RES_TITLE_BEGIN)){
 		        				//Embedding HyperLink

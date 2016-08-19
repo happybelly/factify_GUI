@@ -46,7 +46,6 @@ public class FEWrapperGUI implements FEConstants{
 		 * @param output
 		 */
 		
-		
 		args[0] = file.getPath(); 		// File: PDF with full path
 		args[1] = DIR_JSON_OUTPUT + File.separator;		// Directory where JSON is output
 		args[2] = DIR_JSON_OUTPUT + File.separator; 	// Directory for debug - can be suppressed.
