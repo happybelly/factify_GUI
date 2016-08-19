@@ -18,9 +18,15 @@
 
 package org.factpub.ui.gui.core;
 
+import org.factpub.factify.utility.Utility;
 import org.factpub.ui.gui.MainFrame;
 import org.factpub.ui.gui.network.AuthMediaWikiIdHTTP;
+import org.factpub.ui.gui.network.PostFile;
 import org.factpub.ui.gui.utility.FEConstants;
+
+import java.io.File;
+import java.util.List;
+
 import org.apache.commons.cli.*;
 
 public class EntryPoint implements FEConstants {
@@ -40,12 +46,12 @@ public class EntryPoint implements FEConstants {
 	        //-f Option
 	        Option file =
 	            OptionBuilder
-	                .hasArg(true)
-	                .withArgName("file")
-	                .isRequired(true)
-	                .withDescription("academic papers (pdfs): -f paper1.pdf -f paper2.pdf ...")
-	                .withLongOpt("file")
-	                .create("f");
+	                .hasArg(true)					//Does parameter take argument?
+	                .withArgName("file")			//Name of the parameter.
+	                .isRequired(true)				//Is parameter required?
+	                .withDescription("academic papers (pdfs): -f paper1.pdf -f paper2.pdf ...") //Usage
+	                .withLongOpt("file")			//Synonym for the option
+	                .create("f");					//Create the option
 	        
 	        Option user =
 		            OptionBuilder
@@ -58,12 +64,12 @@ public class EntryPoint implements FEConstants {
 	        
 	        Option password =
 		            OptionBuilder
-		                .hasArg(true)    //オプション�?�後�?�パラメータ�?�必須�?�
-		                .withArgName("password")    //パラメータ�??
-		                .isRequired(false)    //オプション�??�?�も�?��?�必須�?�
-		                .withDescription("password (requires <username>)")    //Usage出力用�?�説明
-		                .withLongOpt("password")    //オプション�?�別�??（--file�?��?��?�も�?�）
-		                .create("p");    //f�?��?��?��??�?�?�オプション作�?
+		                .hasArg(true)
+		                .withArgName("password")
+		                .isRequired(false)
+		                .withDescription("password (requires <username>)")
+		                .withLongOpt("password")
+		                .create("p");
 
 	        options.addOption(file);
 	        options.addOption(password);
@@ -103,8 +109,42 @@ public class EntryPoint implements FEConstants {
 	        if (cmd.hasOption("f")) {
 	            String[] pdfs = cmd.getOptionValues("f");
 	            for(String pdf : pdfs){
-		            FEWrapperCUI.launchCUI(pdf);
-	            }
+	            	File pdf_file = new File(pdf);
+		            String status = FEWrapper.GUI_Wrapper(pdf_file);
+		            
+		            //Networking function for CUI
+		            if(!status.equals(FE_STATUS_CODE_0)){
+		        		
+		            	File json = new File(FEConstants.DIR_JSON_OUTPUT + File.separator + Utility.getFileNameMD5(pdf_file));
+		        		
+		        		try{
+		        			
+		        			System.out.println("Start uploading " + json.getName() + " to " + FEConstants.SERVER_API);
+		        			List<String> res = PostFile.uploadToFactpub(json);    				
+		        			System.out.println("PostFile.uploadToFactpub end");
+		        			
+		        			// If the server returns page title, put it into the array so browser can open the page when user click it.
+		        			if(res.get(0).contains(FEConstants.SERVER_RES_TITLE_BEGIN)){
+		        				
+		        				//Embedding HyperLink
+		        				String pageTitle = (String) res.get(0).subSequence(res.get(0).indexOf(FEConstants.SERVER_RES_TITLE_BEGIN) + FEConstants.SERVER_RES_TITLE_BEGIN.length(), res.get(0).indexOf(FEConstants.SERVER_RES_TITLE_END));
+		        				pageTitle = pageTitle.replace(" ", "_");
+		        				System.out.println(pageTitle);
+		        				String uriString = FEConstants.PAGE_CREATED + pageTitle;
+		        			
+		        				status = "Page is created: " + uriString;
+		        				
+		        				//change table color        				
+		        			}else{
+		        				status = "Upload success but page was not created.";      				
+		        			}      			
+		        			// embed HTML to the label
+		        		}catch(Exception e){
+		            		status = FEConstants.STATUS_UPLOAD_FAILED;
+		        		}
+		        		System.out.println(status);
+		       		}
+		       	}
 	        }
 	        
 		}else{

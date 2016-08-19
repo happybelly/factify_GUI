@@ -42,16 +42,16 @@ public interface FEConstants {
 	static final String SERVER_RES_TITLE_BEGIN = "BEGINOFPAGETITLE:";
 	static final String SERVER_RES_TITLE_END = ":ENDOFPAGETITLE";
 	
-	//static final String DIR_FE_HOME = System.getProperty("java.io.tmpdir") + "factpub" + File.separator;
-	static final String DIR_FE_HOME = "";
+	static final String DIR_FE_HOME = System.getProperty("java.io.tmpdir") + File.separator +  "factpub" + File.separator;
+	//static final String DIR_FE_HOME = "";
 	
 //	static final String DIR_RULE_INPUT =  DIR_FE_HOME + File.separator + "Rule_INPUT" + File.separator;
 //	static final String DIR_JSON_OUTPUT =  DIR_FE_HOME + File.separator + "JSON" + File.separator;
 //	static final String FILE_ANNOUNCEMENT = DIR_FE_HOME + File.separator + "announcement.txt";
 //	static final String FILE_LOG = DIR_FE_HOME + File.separator + "log.txt";
 	
-	static final String DIR_RULE_INPUT = "Rule_INPUT" + File.separator;
-	static final String DIR_JSON_OUTPUT = "JSON" + File.separator;
+	static final String DIR_RULE_INPUT = DIR_FE_HOME + "Rule_INPUT" + File.separator;
+	static final String DIR_JSON_OUTPUT = DIR_FE_HOME + "JSON" + File.separator;
 	static final String FILE_ANNOUNCEMENT = "announcement.txt";
 	static final String FILE_LOG = "factpub_uploader_log.txt";
 	

@@ -22,7 +22,7 @@ import static org.junit.Assert.assertEquals;
 import java.io.File;
 import java.util.List;
 
-import org.factpub.ui.gui.core.FEWrapperGUI;
+import org.factpub.ui.gui.core.FEWrapper;
 import org.factpub.ui.gui.core.InitTempDir;
 import org.factpub.ui.gui.network.AuthMediaWikiIdHTTP;
 import org.factpub.ui.gui.network.PostFile;
@@ -83,7 +83,7 @@ public class TestCases implements FEConstants {
 		
 		//Please specify the path for the dummy non-pdf file below: test.txt
 		File non_pdf = new File("C:\\Users\\suns1\\Desktop\\workspace\\factpub_uploader\\resources\\test\\test.txt");
-		String msg = FEWrapperGUI.GUI_Wrapper(non_pdf);
+		String msg = FEWrapper.GUI_Wrapper(non_pdf);
 		System.out.println(msg);
 		System.out.println(FE_STATUS_CODE_2);
 		assertEquals(FE_STATUS_CODE_2, msg); //PDF Converter Failed
@@ -95,7 +95,7 @@ public class TestCases implements FEConstants {
 		
 		//Please specify the path for the pdf file, sample academic paper, below.
 		File pdf = new File("C:\\Users\\suns1\\Desktop\\workspace\\factpub_uploader\\resources\\test\\sample_doi_1.pdf");
-		String msg = FEWrapperGUI.GUI_Wrapper(pdf);
+		String msg = FEWrapper.GUI_Wrapper(pdf);
 		
 		System.out.println(msg);
 		System.out.println(FE_STATUS_CODE_1);

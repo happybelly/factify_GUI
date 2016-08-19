@@ -25,7 +25,7 @@ import org.factpub.factify.Factify;
 import org.factpub.factify.utility.Utility;
 import org.factpub.ui.gui.utility.FEConstants;
 
-public class FEWrapperGUI implements FEConstants{
+public class FEWrapper implements FEConstants{
 	
 	public static String fileNameMD5 = null;	
 

@@ -23,7 +23,7 @@ import java.io.File;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 
-import org.factpub.ui.gui.core.FEWrapperGUI;
+import org.factpub.ui.gui.core.FEWrapper;
 import org.factpub.ui.gui.network.PostFile;
 import org.factpub.ui.gui.utility.FEConstants;
 import org.factpub.factify.utility.Utility;
@@ -62,7 +62,7 @@ public class FEThread implements Runnable {
 			
 			//MainFrame.fileTable getCellEditor(row, FEConstants.TABLE_COLUMN_STATUS);
 
-			status = FEWrapperGUI.GUI_Wrapper(file);  // <--------------------------- where FactExtractor is executed!
+			status = FEWrapper.GUI_Wrapper(file);  // <--------------------------- where FactExtractor is executed!
 			// If success
 			updateStatusColumn(status, row);
 			
@@ -101,10 +101,10 @@ public class FEThread implements Runnable {
 		        			}
 		        			
 		        			// embed HTML to the label
-		        			}catch(Exception e){
-		        				
-			        			status = FEConstants.STATUS_UPLOAD_FAILED;
-			        			updateStatusColumn(status, row);
+	        			}catch(Exception e){
+	        				
+		        			status = FEConstants.STATUS_UPLOAD_FAILED;
+		        			updateStatusColumn(status, row);
 			        			
 		        		}
 		    		}	                    		
