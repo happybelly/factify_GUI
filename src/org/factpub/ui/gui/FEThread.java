@@ -28,6 +28,8 @@ import org.factpub.ui.gui.network.PostFile;
 import org.factpub.ui.gui.utility.FEConstants;
 import org.factpub.factify.utility.Utility;
 
+//This thread process is called when user drop files on the main panel.
+
 public class FEThread implements Runnable {
 	
 	private Semaphore semaphore; 
@@ -75,7 +77,7 @@ public class FEThread implements Runnable {
 		        				    			
 	        			System.out.println(Utility.getFileNameMD5(file));
 	        			
-	        			// File name must be MD5!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! otherwise it does get error.
+	        			// File name must be MD5. otherwise it does get error.
 	        			File json = new File(FEConstants.DIR_JSON_OUTPUT + File.separator + Utility.getFileNameMD5(file));
 	        				
 		        		try{
