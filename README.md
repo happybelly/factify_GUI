@@ -1,38 +1,50 @@
-# factpub_uploader
 
-![factpub_uploader screenshot](http://factpub.org/img/github/step1.png)
+# Factify_GUI (factpub_uploader)
 
-## What is factpub_uploader?
-*factpub_uploader* provides GUI for factify.
+![Factify_GUI](http://factpub.org/img/github/step1.png)
 
-## Dependency
-This program requires *factify* to perform text extraction.
-https://github.com/happybelly/factify
+Factify_GUI is the GUI wrapper for [Factify](https://github.com/happybelly/factify), core extraction module, as a part of [FactPub project](http://factpub.org/).
 
-## How to build? (eclipse)
-##### Step 1. download the zip from the top of this git repository and expand it to your local folder.
-![factpub_uploader screenshot](http://factpub.org/img/github/how_to_develop_0.png)
-##### Step 2. Choose 'File->Import' from the eclipse menu.
-![factpub_uploader screenshot](http://factpub.org/img/github/how_to_develop_1.png)
-##### Step 3. Choose 'General->Existing Projects into Workspace' from the import menu.
-![factpub_uploader screenshot](http://factpub.org/img/github/how_to_develop_2.png)
-##### Step 4. Choose the root path of the expanded folder you downloaded in the step 1 and click 'Finish' button.
-![factpub_uploader screenshot](http://factpub.org/img/github/how_to_develop_3.png)
-##### Step 5. Open EntryPoint.java by double clicking the file under org.factpub.core package
-##### Step 6. Run the code to be compliled and the program launches in your eclipse!
-![factpub_uploader screenshot](http://factpub.org/img/github/how_to_develop_4.png)
+Requirement
+-----------
 
-##### Under "Run configurations", make sure JavaSE-1.8 is used.
+[Java Version 1.8+](java.com/download/)
+[Factify](https://github.com/happybelly/factify)
+
+Build (eclipse)
+---------------
+
+* Step 1. download the zip from the top of this git repository and expand it to your local folder.
+![factpub_uploader screenshot](http://factpub.org/img/github/how_to_develop_0.png =100x100)
+* Step 2. Choose 'File->Import' from the eclipse menu.
+![factpub_uploader screenshot](http://factpub.org/img/github/how_to_develop_1.png =100x100)
+* Step 3. Choose 'General->Existing Projects into Workspace' from the import menu.
+![factpub_uploader screenshot](http://factpub.org/img/github/how_to_develop_2.png =100x100)
+* Step 4. Choose the root path of the expanded folder you downloaded in the step 1 and click 'Finish' button.
+![factpub_uploader screenshot](http://factpub.org/img/github/how_to_develop_3.png =100x100)
+* Step 5. Open EntryPoint.java by double clicking the file under org.factpub.core package
+* Step 6. Run the code to be compliled and the program launches in your eclipse!
+![factpub_uploader screenshot](http://factpub.org/img/github/how_to_develop_4.png =100x100)
+
+* _Under "Run configurations", make sure JavaSE-1.8 is used._
 
 
-## LICENSE [GNU General Public License]
-Author: Sun SAGONG
+About FactPub
+-------------
 
-Copyright (C) 2016, Genome Institute of Singapore, A*STAR
+![FactPub](http://factpub.org/img/logo_factpub.png)
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
- 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-See the GNU General Public License for more details.
-You should have received a copy of the GNU General Public License along with this program.
-If not, see <http://www.gnu.org/licenses/>.
+[FactPub](http://factpub.org/) is the project that helps scientific facts accessible to general public in legal manner.
+
+Publications
+------------
+
+* [Breaking Down Paywalls for Online Health(Pauline Ng, Xiaocheng Huang, Sun Sagong and Lucas Tan: Healthcare Data Science , ODSC East 2016)](https://www.opendatascience.com/conferences/pauline-ng-breaking-down-paywalls-for-online-health/)
+
+* [Enabling Public Access to Non-Open Access Biomedical Literature via Idea-Expression Dichotomy and Fact Extraction (Huang Xiaocheng & Pauline Ng - AAAI on Artificial Intelligence: Scholarly Big Data: AI Perspectives, Challenges, and Ideas, 2016)](http://www.aaai.org/ocs/index.php/WS/AAAIW16/paper/viewPaper/12557)
+
+License
+-------
+
+The content of this repository is licensed under [GNU GPLv3](http://choosealicense.com/licenses/gpl-3.0/)
+
