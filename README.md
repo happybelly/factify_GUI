@@ -9,22 +9,23 @@ Requirement
 -----------
 
 [Java Version 1.8+](java.com/download/)
+
 [Factify](https://github.com/happybelly/factify)
 
 Build (eclipse)
 ---------------
 
 * Step 1. download the zip from the top of this git repository and expand it to your local folder.
-![factpub_uploader screenshot](http://factpub.org/img/github/how_to_develop_0.png =100x100)
+![factpub_uploader screenshot](http://factpub.org/img/github/how_to_develop_0.png)
 * Step 2. Choose 'File->Import' from the eclipse menu.
-![factpub_uploader screenshot](http://factpub.org/img/github/how_to_develop_1.png =100x100)
+![factpub_uploader screenshot](http://factpub.org/img/github/how_to_develop_1.png)
 * Step 3. Choose 'General->Existing Projects into Workspace' from the import menu.
-![factpub_uploader screenshot](http://factpub.org/img/github/how_to_develop_2.png =100x100)
+![factpub_uploader screenshot](http://factpub.org/img/github/how_to_develop_2.png)
 * Step 4. Choose the root path of the expanded folder you downloaded in the step 1 and click 'Finish' button.
-![factpub_uploader screenshot](http://factpub.org/img/github/how_to_develop_3.png =100x100)
+![factpub_uploader screenshot](http://factpub.org/img/github/how_to_develop_3.png)
 * Step 5. Open EntryPoint.java by double clicking the file under org.factpub.core package
 * Step 6. Run the code to be compliled and the program launches in your eclipse!
-![factpub_uploader screenshot](http://factpub.org/img/github/how_to_develop_4.png =100x100)
+![factpub_uploader screenshot](http://factpub.org/img/github/how_to_develop_4.png)
 
 * _Under "Run configurations", make sure JavaSE-1.8 is used._
 
