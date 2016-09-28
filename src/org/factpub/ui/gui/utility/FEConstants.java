@@ -42,7 +42,7 @@ public interface FEConstants {
 	static final String SERVER_RES_TITLE_BEGIN = "BEGINOFPAGETITLE:";
 	static final String SERVER_RES_TITLE_END = ":ENDOFPAGETITLE";
 	
-	static final String DIR_FE_HOME = System.getProperty("java.io.tmpdir") + File.separator +  "factpub" + File.separator;
+	static final String DIR_FE_HOME = System.getProperty("user.home") + File.separator +  "factpub" + File.separator;
 	//static final String DIR_FE_HOME = "";
 	
 //	static final String DIR_RULE_INPUT =  DIR_FE_HOME + File.separator + "Rule_INPUT" + File.separator;
