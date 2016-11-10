@@ -39,6 +39,8 @@ public class AuthMediaWikiIdHTTP {
 	
 	public static String authorisedUser = "Anonymous";
 	
+	public static String userPassword = "";
+	
 	public static void authMediaWikiAccount (String wikiId, String wikiPass) throws Exception  {
 		
 		AuthMediaWikiIdHTTP http = new AuthMediaWikiIdHTTP();
@@ -90,6 +92,7 @@ public class AuthMediaWikiIdHTTP {
 					// get User Name from JSON
 					JsonElement username = jobject2.get("lgusername");
 				    authorisedUser = username.toString().replace("\"", "");
+				    userPassword = wikiPass;
 				    
 				    // replace space with underscore
 				    authorisedUser = authorisedUser.replace(" ", "_");
